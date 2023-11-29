@@ -35,7 +35,8 @@ class Post(models.Model):
         return self.favourites.count()
 
 
-class submit_form(models.Model):
+class Submit_form(models.Model):
+    # n.b. renamed author/related_name, removed favourites
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     # n.b. recipe_posts not blog_posts
@@ -50,6 +51,9 @@ class submit_form(models.Model):
     ingredients = models.CharField(max_length=800)
     # n.b. instructions is obvs new
     instructions = models.CharField(max_length=800)
+    # n.b. do I need an 'approved' field? Copied from ITTIB here:
+    approved = models.BooleanField(default=False)
+    email = models.EmailField()
 
     class Meta:
         # in descending order by created on - might change this ordering
