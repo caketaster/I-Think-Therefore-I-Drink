@@ -1,0 +1,22 @@
+body {
+    background-color: #d1cfcf;
+}
+
+.icon {
+    filter: invert(100%); 
+  }
+
+.footer {
+    position: sticky;
+    bottom: 0;
+    color: #fff;
+    width: 100%;
+    margin-bottom: 0;
+    margin: 0 auto;
+    justify-content: center;
+    padding: 0;
+}
+
+.footer .col-lg-8 {
+    border: 0;
+}

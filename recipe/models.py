@@ -2,7 +2,9 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
+
 STATUS = ((0, "Draft"), (1, "Published"))
+
 
 class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
@@ -12,7 +14,8 @@ class Post(models.Model):
     updated_on = models.DateTimeField(auto_now=True)
     content = models.TextField()
     featured_image = CloudinaryField('image', default='placeholder')
-    excerpt = models.TextField(blank=True)
+    # changed from 'excerpt'
+    description = models.TextField(blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
     # n.b. favourites not 'likes' (integer?)
@@ -39,22 +42,22 @@ class Submit_form(models.Model):
     # n.b. renamed author/related_name, removed favourites
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
-    # n.b. recipe_posts not blog_posts
+    # n.b. submit_posts not blog_posts
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="submit_posts")
     updated_on = models.DateTimeField(auto_now=True)
     content = models.TextField()
     featured_image = CloudinaryField('image', default='placeholder')
-    excerpt = models.TextField(blank=True)
+    # changed from 'excerpt'
+    description = models.TextField(blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
-    # n.b. ingredients is a list. not sure how to do this - CharField? required/blank=False
+    # n.b. ingredients is an unordered list. not sure how to do this - CharField? required/blank=False
     ingredients = models.CharField(max_length=800)
-    # n.b. instructions is obvs new
+    # n.b. instructions is obvs new (needs to be ordered list)
     instructions = models.CharField(max_length=800)
     # n.b. do I need an 'approved' field? Copied from ITTIB here:
     approved = models.BooleanField(default=False)
-    email = models.EmailField()
-
+    email = models.EmailField(null=True, blank=True)
     class Meta:
         # in descending order by created on - might change this ordering
         ordering = ['-created_on']
