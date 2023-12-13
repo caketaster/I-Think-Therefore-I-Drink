@@ -1,17 +1,15 @@
-<!-- n.b. this is currently a direct copy from the ITTIB files - need to edit to make it fit my project -->
-
 {% extends "base.html" %}
 
 {% block content %}
 
 <div class="container-fluid">
-    <div class="row">
+    <div class="row justify-content-center">
 
-        <!-- Blog Entries Column -->
-        <div class="col-12 mt-3 left">
-            <div class="row">
+        <!-- Recipe Entries Column -->
+        <div class="col-10 mt-3 left">
+            <div class="row justify-content-center mx-3">
                 {% for post in post_list %}
-                <div class="col-sm-1 col-md-2 col-lg-3 col-xl-4">
+                <div class="col-sm-10 col-md-5 col-lg-4 col-xl-3">
                     <div class="card mb-4">
                         <div class="card-body">
                             <div class="image-container">
@@ -32,7 +30,7 @@
                                 <p class="card-text">{{ post.description }}</p>
                             </a>
                             <hr />
-                            <p class="card-text text-muted h6">{{ post.created_on}} <i class="far fa-heart"></i>
+                            <p class="card-text text-muted h6">{{ post.created_on}} <i class="fa-solid fa-whiskey-glass"></i>
                                 {{ post.number_of_favourites }}</p>
                         </div>
                     </div>

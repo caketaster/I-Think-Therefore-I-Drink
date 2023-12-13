@@ -1,5 +1,5 @@
 body {
-    background-color: #d1cfcf;
+    background-color: #a3a1a1;
 }
 
 .icon {
@@ -19,4 +19,9 @@ body {
 
 .footer .col-lg-8 {
     border: 0;
+}
+
+.card-text {
+    font: rgb(45, 45, 45);
+    font-size: 0.7rem;
 }
