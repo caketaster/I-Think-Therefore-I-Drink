@@ -27,7 +27,7 @@ class Post(models.Model):
 
     class Meta:
         # in descending order by created on - might change this ordering
-        ordering = ['-created_on']
+        ordering = ['created_on']
 
     # a 'magic method' that returns a string representation of an object. You should define it because the default isn't helpful at all(!)
     def __str__(self):
@@ -48,6 +48,7 @@ class Submit_form(models.Model):
     content = models.TextField()
     featured_image = CloudinaryField('image', default='placeholder')
     # changed from 'excerpt'
+    # delete description / merge with content
     description = models.TextField(blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)

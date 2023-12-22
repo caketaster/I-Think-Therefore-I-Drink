@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
 from .models import Post
+from .forms import PostForm
+from django.urls import reverse_lazy
 
 
 class PostList(generic.ListView):
@@ -18,7 +20,7 @@ class PostDetail(View):
         favourited = False
         if post.favourites.filter(id=self.request.user.id).exists():
             favourited = True
-        # n.d. 'favourited' not 'liked'
+        # n.b. 'favourited' not 'liked'
 
         return render(
             request,
@@ -28,3 +30,10 @@ class PostDetail(View):
                 "favourited": favourited,
             },
         )
+
+class CreatePost(generic.CreateView):
+
+    model = Post
+    fields = ['title', 'content', 'ingredients', 'instructions']
+    template_name = 'createpost.html'
+    success_url = reverse_lazy('')

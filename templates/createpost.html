@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form method="post">
+    
+    {% csrf_token %}
+    {{ field.title }}
+    {{ field.content }}
+    {{ field.ingredients }}
+    {{ field.instructions }}
+
+</form>
+
+{% endblock %}
