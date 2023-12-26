@@ -2,14 +2,17 @@
 
 {% block content %}
 
+<h1>Submit</h1>
 <form method="post">
     
     {% csrf_token %}
-    {{ field.title }}
-    {{ field.content }}
-    {{ field.ingredients }}
-    {{ field.instructions }}
+
+    {{ form.as_p }}
+
+    <button class="btn btn-light" type="submit">Submit cocktail</button>
 
 </form>
+
+
 
 {% endblock %}

@@ -3,6 +3,8 @@ from django.views import generic, View
 from .models import Post
 from .forms import PostForm
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.models import User
 
 
 class PostList(generic.ListView):
@@ -16,7 +18,6 @@ class PostDetail(View):
     def get(self, request, slug, *args, **kwargs):
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
-        # there's a line for Comments here - I'm leaving it out
         favourited = False
         if post.favourites.filter(id=self.request.user.id).exists():
             favourited = True
@@ -31,9 +32,13 @@ class PostDetail(View):
             },
         )
 
-class CreatePost(generic.CreateView):
+# start from here - make function based
+class CreatePost(LoginRequiredMixin, generic.CreateView):
 
     model = Post
     fields = ['title', 'content', 'ingredients', 'instructions']
     template_name = 'createpost.html'
-    success_url = reverse_lazy('')
+    success_url = reverse_lazy('home')
+    login_url = '/login/'
+    # post = Post()
+    self.author_id = self.request.user
