@@ -24,6 +24,8 @@ urlpatterns = [
     path('recipe/', include('recipe.urls'), name='recipe_urls'),
     path('accounts/', include('allauth.urls')),
     path('submitcocktail/', views.CreatePost, name='submitcocktail'),
+    path('favourites/', views.Favourites, name='favourites'),
+    path('addfavourites/<int:post_id>/', views.AddFavourites, name='addfavourites'),
     # path('403', views.Page403.as_view(), name='403'),
     # path('404', views.Page404.as_view(), name='404'),
     # path('500', views.Page500.as_view(), name='500'),

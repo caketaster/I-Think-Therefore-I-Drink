@@ -51,6 +51,16 @@ def CreatePost(request):
 
     return render(request, 'createpost.html', {'form': form})
 
+def Favourites(request):
+    favourites = Post.objects.filter(favourites=request.user)
+    return render(request, 'user.html', {'favourites': favourites})
+
+def AddFavourites(request, post_id):
+    post = get_object_or_404(Post, pk=post_id)
+    post.favourites.add(request.user)
+    return render(request, 'user.html')
+
+
 # class CreatePost(LoginRequiredMixin, generic.CreateView):
 
 #     model = Post

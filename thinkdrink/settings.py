@@ -61,11 +61,11 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
 MESSAGE_TAGS = {
-    messages.DEBUG: 'alert-light',
-    messages.INFO: 'alert-light',
-    messages.SUCCESS: 'alert-light',
-    messages.WARNING: 'alert-light',
-    messages.ERROR: 'alert-light',   
+    messages.DEBUG: 'alert-success',
+    messages.INFO: 'alert-success',
+    messages.SUCCESS: 'alert-success',
+    messages.WARNING: 'alert-success',
+    messages.ERROR: 'alert-success',   
 }
 
 MIDDLEWARE = [
