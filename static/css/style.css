@@ -27,3 +27,7 @@ body {
     font: rgb(45, 45, 45);
     font-size: 0.7rem;
 }
+
+a {
+    text-decoration: none;
+}

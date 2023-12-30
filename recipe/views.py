@@ -71,3 +71,5 @@ def AddFavourites(request, post_id):
 #     # post = Post()
 #     self.author_id = self.request.user
 
+# def addfavourites(request):
+#     return render(request, 'user.html')
