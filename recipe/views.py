@@ -26,7 +26,7 @@ class PostDetail(View):
         ingredients = ingredients.split(',')
         i = 0
         while i < len(ingredients):
-            ingredients[i] = ingredients[i].strip()
+            ingredients[i] = ingredients[i].strip().strip('\t')      
             i += 1
 
         instructions = post.instructions
@@ -56,7 +56,7 @@ def CreatePost(request):
             recipe = Post()
             recipe.title = field_form.cleaned_data['title']
             recipe.slug = field_form.cleaned_data['title'].lower().replace(' ', '-')
-            recipe.content = field_form.cleaned_data['content']
+            recipe.description = field_form.cleaned_data['description']
             recipe.ingredients = field_form.cleaned_data['ingredients']
             recipe.instructions = field_form.cleaned_data['instructions']
             recipe.author = User.objects.get(id = request.user.id)

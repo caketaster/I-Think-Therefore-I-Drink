@@ -25,10 +25,16 @@
         <div class="col card mb-4  mt-3 left  top">
             <div class="card-body">
                 <p class="card-text ">
-                    {{ post.content | safe }}
+                    {{ post.description | safe }}
                 </p>
-                <p class="card-text">{{ post.ingredients }}</p>
-                <p class="card-text">{{ post.instructions }}</p>
+                <ul class="card-text">{% for ingredient in ingredients %}
+                    <li>{{ ingredient }}</li> 
+                    {% endfor %}                 
+                </ul>
+                <ol class="card-text">{% for instruction in instructions %}
+                    <li>{{ instruction }}</li> 
+                    {% endfor %}                 
+                </ol>
                 <div class="row">
 
                     <div class="col-1">
