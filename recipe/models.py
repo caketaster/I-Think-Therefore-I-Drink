@@ -58,7 +58,7 @@ class Submit_form(models.Model):
     instructions = models.CharField(max_length=800)
     # n.b. do I need an 'approved' field? Copied from ITTIB here:
     approved = models.BooleanField(default=False)
-    email = models.EmailField(null=True, blank=True)
+    email = models.EmailField(null=True, blank=True) 
     class Meta:
         # in descending order by created on - might change this ordering
         ordering = ['-created_on']

@@ -1,4 +1,3 @@
-
 {% extends 'base.html' %} {% block content %}
 
 <div class="masthead">
@@ -6,13 +5,13 @@
         <div class="row g-0">
             <div class="col-md-6 masthead-text">
                 <h1 class="post-title">{{ post.title }}</h1>
-                <!-- Post author goes before the | the post's created date goes after -->
                 <p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
                 <!-- The featured image URL goes in the src attribute -->
                 {% if "placeholder" in post.featured_image.url %}
-                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.xYgnlEJ1sM5_6qk9QQMw8gHaE8%26pid%3DApi&f=1&ipt=ded1d03eefc8ac98fcb51a6f8f85b89c23017ef3de360f619d2a724d92f12818&ipo=images" width="100%">
+                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.xYgnlEJ1sM5_6qk9QQMw8gHaE8%26pid%3DApi&f=1&ipt=ded1d03eefc8ac98fcb51a6f8f85b89c23017ef3de360f619d2a724d92f12818&ipo=images"
+                    width="100%">
                 {% else %}
                 <img src="{{ post.featured_image.url }}" width="100%">
                 {% endif %}
@@ -33,15 +32,11 @@
                 <div class="row">
 
                     <div class="col-1">
-                        <!-- The number of likes goes before the closing strong tag -->
-                        <strong class="text-secondary"><i class="far fa-heart"></i> </strong>
+                        <p class="card-text text-muted h6">{{ post.created_on}}
+                            <a href="{% url 'addfavourites' post_id=post.id %}" class="fa-solid fa-whiskey-glass"></a>
+                            {{ post.number_of_favourites }}</p>
                     </div>
-                    <div class="col-1">
-                        {% with comments.count as total_comments %}
-                        <strong class="text-secondary"><i class="far fa-comments">{{ post.number_of_favourites }}</i>
-                        </strong>
-                        {% endwith %}
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -51,30 +46,5 @@
             <hr>
         </div>
     </div>
-    <!-- I've commented out the Comments section. -->
-    <!-- <div class="row">
-        <div class="col-md-8 card mb-4  mt-3 ">
-            <h3>Comments:</h3>
-            <div class="card-body">
-                {% for comment in comments %}
-                <div class="comments" style="padding: 10px;">
-                    <p class="font-weight-bold">
-
-                        {{ comment.name }}
-                        <span class=" text-muted font-weight-normal">
-                            {{ comment.created_on }}
-                        </span> wrote:
-                    </p>
-                    {{ comment.body | linebreaks }}
-                </div>
-                {% endfor %}
-            </div>
-            <div class="col-md-4 card mb-4  mt-3 ">
-                <div class="card-body">
-
-                </div>
-            </div>
-        </div>
-    </div> -->
-
+    
     {% endblock content %}

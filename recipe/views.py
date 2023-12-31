@@ -21,7 +21,20 @@ class PostDetail(View):
         favourited = False
         if post.favourites.filter(id=self.request.user.id).exists():
             favourited = True
-        # n.b. 'favourited' not 'liked'
+
+        ingredients = post.ingredients
+        ingredients = ingredients.split(',')
+        i = 0
+        while i < len(ingredients):
+            ingredients[i] = ingredients[i].strip()
+            i += 1
+
+        instructions = post.instructions
+        instructions = instructions.split(',')
+        i = 0
+        while i < len(instructions):
+            instructions[i] = instructions[i].strip()
+            i += 1
 
         return render(
             request,
@@ -29,6 +42,8 @@ class PostDetail(View):
             {
                 "post": post,
                 "favourited": favourited,
+                "ingredients": ingredients,
+                "instructions": instructions,
             },
         )
 
@@ -57,8 +72,11 @@ def Favourites(request):
 
 def AddFavourites(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
-    post.favourites.add(request.user)
-    return render(request, 'user.html')
+    if post.favourites.filter(id=request.user.id).count()==1:
+        post.favourites.remove(request.user)
+    else:
+        post.favourites.add(request.user)
+    return redirect(request.META['HTTP_REFERER'])
 
 
 # class CreatePost(LoginRequiredMixin, generic.CreateView):

@@ -33,7 +33,7 @@
                             </a>
                             <hr />
                             <p class="card-text text-muted h6">{{ post.created_on}} 
-                                <a href="{% url 'addfavourites' post_id=1 %}" class="fa-solid fa-whiskey-glass"></a>
+                                <a href="{% url 'addfavourites' post_id=post.id %}" class="fa-solid fa-whiskey-glass"></a>
                                 {{ post.number_of_favourites }}</p>
                         </div>
                     </div>
