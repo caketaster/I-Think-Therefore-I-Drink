@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from recipe import views
+from django.conf.urls import handler403, handler404, handler500
 
 urlpatterns = [
     path('', views.PostList.as_view(), name='home'),
@@ -31,3 +32,7 @@ urlpatterns = [
     # path('500', views.Page500.as_view(), name='500'),
     # path('addfavourites/', views.addfavourites, name='addfavourites')
 ]
+
+handler403 = '.views.handler403'
+handler404 = '.views.error_404_view'
+handler500 = '.views.handler500'

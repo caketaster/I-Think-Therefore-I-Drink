@@ -9,13 +9,14 @@ body {
 .footer {
     position: sticky;
     bottom: 0;
-    color: #fff;
+    /* color: #fff; */
     width: 100%;
     margin-bottom: 0;
     margin: 0 auto;
     justify-content: center;
     padding: 0;
     opacity: 100%;
+    background: #b84e4e;
     /* color: #3d3c3c; */
 }
 

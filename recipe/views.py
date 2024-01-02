@@ -78,7 +78,26 @@ def AddFavourites(request, post_id):
         post.favourites.add(request.user)
     return redirect(request.META['HTTP_REFERER'])
 
+def error_404_view(request, exception):
+    """
+    Displays 404.html path
+    """
+    return render(request, '404.html', status=404)
 
+
+def handler500(request, *args, **argv):
+    """
+    Displays 500.html path
+    """
+    return render(request, '500.html', status=500)
+
+
+def handler403(request, *args, **argv):
+    """
+    Displays 403.html path
+    """
+    return render(request, '403.html', status=403)
+    
 # class CreatePost(LoginRequiredMixin, generic.CreateView):
 
 #     model = Post

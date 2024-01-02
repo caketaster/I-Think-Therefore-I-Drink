@@ -16,6 +16,7 @@ import dj_database_url
 from django.contrib.messages import constants as messages 
 if os.path.isfile('env.py'):
      import env
+     DEBUG = True
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -29,7 +30,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+
 
 ALLOWED_HOSTS = ['8000-caketaster-ithinktheref-2rvpy2rod0t.ws-us106.gitpod.io', 'localhost', 'i-think-therefore-i-drink-44cd107f3be4.herokuapp.com', '8000-caketaster-ithinktheref-szf8t44b8yl.ws-us106.gitpod.io', '8000-caketaster-ithinktheref-otr0nwgdv0e.ws-us107.gitpod.io']
 
