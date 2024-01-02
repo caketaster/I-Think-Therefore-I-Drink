@@ -35,7 +35,7 @@
                             <a href="{% url 'home' %}"
                                 class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none "
                                 previewlistener="true">
-                                <img src="../static/media/thinkdrink.jpg" height="35"
+                                <img src="{% static 'media/thinkdrink.jpg' %}" height="35"
                                     aria-label="whiskey-icon">
                             </a>
 
@@ -60,10 +60,12 @@
                     </div>
                 </div>
                 <div class="px-3 py-2 border-bottom mb-3">
-                    <div class="container d-flex flex-wrap justify-content-center">
-                        <form class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto" role="search">
-                            <input type="search" class="form-control" placeholder="Search by ingredient..."
-                                aria-label="Search">
+                    <div class="container d-flex flex-wrap justify-content-center" style="white-space: nowrap;">
+                        <form class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto" method="POST" action="{% url 'search' %}" role="search">
+                        {% csrf_token %}
+                            <input type="search" class="form-control inline-input" name="searchstring" placeholder="Search by ingredient..."
+                                aria-label="Search" style="display: inline;">
+                            <input type="submit" class="btn btn-light inline-input" value="Search" style="display: inline;">
                         </form>
                         <div class="text-end">
                             {% if user.is_authenticated %}
@@ -107,22 +109,18 @@
 
 
     <!-- Footer -->
-    <footer class="opacity-100 footer">
-        <div class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top mx-5 container-fluid fixed-bottom opacity-100">
-            <div class="col-md-4 d-flex align-items-center ">
-                <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1"
-                    previewlistener="true">
-                    <img src="static/media/whiskey.png" width="30" height="24">
+    <footer class="">
+        <div class="d-flex flex-wrap justify-content-between align-items-center py-3 mt-4 border-top px-5 container-fluid fixed-bottom opacity-100">
+            <div class="col-md-4 d-flex align-items-center">
+                <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1" previewlistener="true">
+                    <img src="{% static 'media/whiskey.png' %}" width="30" height="24">
                 </a>
-                <span class="mb-3 mb-md-0 text-body-secondary">© 2023 ThinkDrink,Inc</span>
+                <span class="mb-3 mb-md-0 text-body-secondary">© 2024 ThinkDrink,Inc</span>
             </div>
 
             <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-                <li class="ms-3"><a class="text-body-secondary" href="https://github.com/caketaster/"
-                        target="_blank"><img src="static/media/github.png" alt="github icon" height="25"></li>
-                <li class="ms-3"><a class="text-body-secondary"
-                        href="https://www.linkedin.com/in/benjamin-norman-7619261a" target="_blank"><img
-                            src="static/media/linkedin.png" alt="linkedin icon" height="25"></a></li>
+                <li class="ms-3"><a class="text-body-secondary" href="https://github.com/caketaster/" target="_blank"><img src="{% static 'media/github.png' %}" alt="github icon" height="25"></a></li><a class="text-body-secondary" href="https://github.com/caketaster/" target="_blank">
+                </a><li class="ms-3"><a class="text-body-secondary" href="https://github.com/caketaster/" target="_blank"></a><a class="text-body-secondary" href="https://www.linkedin.com/in/benjamin-norman-7619261a" target="_blank"><img src="{% static 'media/linkedin.png' %}" alt="linkedin icon" height="25"></a></li>
             </ul>
 
         </div>
@@ -133,7 +131,7 @@
             let messages = document.getElementById("msg");
             let alert = new bootstrap.Alert(messages);
             alert.close();
-        }, 2500);
+        }, 3000);
     </script>
 </body>
 

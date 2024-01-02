@@ -27,12 +27,9 @@ urlpatterns = [
     path('submitcocktail/', views.CreatePost, name='submitcocktail'),
     path('favourites/', views.Favourites, name='favourites'),
     path('addfavourites/<int:post_id>/', views.AddFavourites, name='addfavourites'),
-    # path('403', views.Page403.as_view(), name='403'),
-    # path('404', views.Page404.as_view(), name='404'),
-    # path('500', views.Page500.as_view(), name='500'),
-    # path('addfavourites/', views.addfavourites, name='addfavourites')
+    path('search/', views.SearchIngredient, name='search')
 ]
 
-handler403 = '.views.handler403'
-handler404 = '.views.error_404_view'
-handler500 = '.views.handler500'
+handler403 = 'recipe.views.handler403'
+handler404 = 'recipe.views.error_404_view'
+handler500 = 'recipe.views.handler500'

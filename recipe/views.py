@@ -110,3 +110,8 @@ def handler403(request, *args, **argv):
 
 # def addfavourites(request):
 #     return render(request, 'user.html')
+
+def SearchIngredient(request):
+    searchstring = request.POST['searchstring']
+    search = Post.objects.filter(ingredients__icontains=searchstring)
+    return render(request, 'search.html', {'search': search})
