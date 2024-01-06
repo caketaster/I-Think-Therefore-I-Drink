@@ -28,16 +28,16 @@
                     {{ post.description | safe }}
                 </p>
                 <ul class="card-text">{% for ingredient in ingredients %}
-                    <li>{{ ingredient }}</li> 
-                    {% endfor %}                 
+                    <li>{{ ingredient }}</li>
+                    {% endfor %}
                 </ul>
                 <ol class="card-text">{% for instruction in instructions %}
-                    <li>{{ instruction }}</li> 
-                    {% endfor %}                 
+                    <li>{{ instruction }}</li>
+                    {% endfor %}
                 </ol>
                 <div class="row">
 
-                    <div class="col-1">
+                    <div class="col-2">
                         <p class="card-text text-muted h6">{{ post.created_on}}
                             <a href="{% url 'addfavourites' post_id=post.id %}" class="fa-solid fa-whiskey-glass"></a>
                             {{ post.number_of_favourites }}</p>
@@ -47,10 +47,18 @@
             </div>
         </div>
     </div>
+    {% if user == post.author %}
+    <div id="update"><a href="{% url 'account_login' %}" type="button" class="btn btn-light text-dark me-2"
+            role="button">Propose update</a>
+        <a href="{% url 'delete' slug=post.slug %}" type="button" class="btn btn-light text-dark me-2" role="button">Delete
+            cocktail</a>
+    </div>
+    {% endif %}
+    <!-- ?? -->
     <div class="row">
         <div class="col">
             <hr>
         </div>
     </div>
-    
+
     {% endblock content %}

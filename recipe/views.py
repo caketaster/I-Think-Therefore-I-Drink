@@ -47,6 +47,7 @@ class PostDetail(View):
             },
         )
 
+
 def CreatePost(request):
     form = PostForm()
     if request.method == 'POST':
@@ -66,9 +67,11 @@ def CreatePost(request):
 
     return render(request, 'createpost.html', {'form': form})
 
+
 def Favourites(request):
     favourites = Post.objects.filter(favourites=request.user)
     return render(request, 'user.html', {'favourites': favourites})
+
 
 def AddFavourites(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
@@ -77,6 +80,7 @@ def AddFavourites(request, post_id):
     else:
         post.favourites.add(request.user)
     return redirect(request.META['HTTP_REFERER'])
+
 
 def error_404_view(request, exception):
     """
@@ -98,20 +102,19 @@ def handler403(request, *args, **argv):
     """
     return render(request, '403.html', status=403)
     
-# class CreatePost(LoginRequiredMixin, generic.CreateView):
-
-#     model = Post
-#     fields = ['title', 'content', 'ingredients', 'instructions']
-#     template_name = 'createpost.html'
-#     success_url = reverse_lazy('home')
-#     login_url = '/login/'
-#     # post = Post()
-#     self.author_id = self.request.user
-
-# def addfavourites(request):
-#     return render(request, 'user.html')
 
 def SearchIngredient(request):
     searchstring = request.POST['searchstring']
     search = Post.objects.filter(ingredients__icontains=searchstring)
     return render(request, 'search.html', {'search': search})
+
+
+def DeletePost(request, slug):
+    if request.method=='POST':
+        cocktail = Post.objects.get(slug=slug)
+        cocktail.delete()
+        return redirect('home')
+    else:
+        cocktail = Post.objects.get(slug=slug)
+        return render(request, 'delete.html', {'cocktail': cocktail})
+

@@ -65,7 +65,7 @@
                         {% csrf_token %}
                             <input type="search" class="form-control inline-input" name="searchstring" placeholder="Search by ingredient..."
                                 aria-label="Search" style="display: inline;">
-                            <input type="submit" class="btn btn-light inline-input" value="Search" style="display: inline;">
+                            <input type="submit" class="btn btn-light inline-input" value="Search" >
                         </form>
                         <div class="text-end">
                             {% if user.is_authenticated %}

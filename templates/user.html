@@ -3,7 +3,13 @@
 {% block content %}
 
 {% if user.is_authenticated %}
-<h1>Hello {{ user.get_username }} </h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4 mt-3">
+            <h1>Hello {{ user.get_username }} </h1>
+        </div>
+    </div>
+</div>
 <div class="col-10 mt-3 left">
     <div class="row justify-content-center mx-3">
         {% for post in favourites %}
@@ -25,7 +31,7 @@
                     </div>
                     <a href="{% url 'post_detail' post.slug %}" class="post-link">
                         <h2 class="card-title">{{ post.title }}</h2>
-                        <p class="card-text">{{ post.description }}</p>
+                        <p class="card-text">{{ post.description | safe }}</p>
                     </a>
                     <hr />
                     <p class="card-text text-muted h6">{{ post.created_on}} 
