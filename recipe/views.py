@@ -51,7 +51,6 @@ class PostDetail(View):
 def CreatePost(request):
     form = PostForm()
     if request.method == 'POST':
-        print("working")
         field_form = PostForm(request.POST)
         if field_form.is_valid():
             recipe = Post()
@@ -118,3 +117,23 @@ def DeletePost(request, slug):
         cocktail = Post.objects.get(slug=slug)
         return render(request, 'delete.html', {'cocktail': cocktail})
 
+def UpdatePost(request, slug):
+    form = PostForm()
+    if request.method == 'POST':
+        # field_form = PostForm(request.POST)
+        
+        print("works 2")
+        recipe = Post()
+        recipe.title = request.POST['title']
+        recipe.slug = request.POST['title'].lower().replace(' ', '-')
+        recipe.description = request.POST['description']
+        recipe.ingredients = request.POST['ingredients']
+        recipe.instructions = request.POST['instructions']
+        recipe.author = User.objects.get(id = request.user.id)
+        recipe.save()
+        request.session['submit_success'] = 'Update submitted to the Admin for approval'
+        return redirect('home')
+    
+    cocktail = Post.objects.get(slug=slug)
+
+    return render(request, 'update.html', {'form': form, 'cocktail': cocktail})
