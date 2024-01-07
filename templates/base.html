@@ -35,8 +35,7 @@
                             <a href="{% url 'home' %}"
                                 class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none "
                                 previewlistener="true">
-                                <img src="{% static 'media/thinkdrink.jpg' %}" height="35"
-                                    aria-label="whiskey-icon">
+                                <img src="{% static 'media/thinkdrink.jpg' %}" height="35" aria-label="whiskey-icon">
                             </a>
 
                             <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
@@ -46,7 +45,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{% url 'favourites' %}" class="nav-link text-white"> 
+                                    <a href="{% url 'favourites' %}" class="nav-link text-white">
                                         Favourites
                                     </a>
                                 </li>
@@ -61,22 +60,26 @@
                 </div>
                 <div class="px-3 py-2 border-bottom mb-3">
                     <div class="container d-flex flex-wrap justify-content-center" style="white-space: nowrap;">
-                        <form class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto" method="POST" action="{% url 'search' %}" role="search">
-                        {% csrf_token %}
-                            <input type="search" class="form-control inline-input" name="searchstring" placeholder="Search by ingredient..."
-                                aria-label="Search" style="display: inline;">
-                            <input type="submit" class="btn btn-light inline-input" value="Search" >
-                        </form>
-                        <div class="text-end">
-                            {% if user.is_authenticated %}
-                            <a href="{% url 'account_logout' %}" class="btn btn-light text-dark me-2" role="button"
-                                href="{% url 'account_logout' %}">Logout</a>
-                            {% else %}
-                            <a href="{% url 'account_login' %}" type="button" class="btn btn-light text-dark me-2"
-                                role="button">Login</a>
-                            <a href="{% url 'account_signup' %}" type="button" class="btn btn-dark text-nowrap"
-                                role="button">Sign-up</a>
-                            {% endif %}
+                        <div class="row ">
+                            <form class="col-lg-8" method="POST"
+                                action="{% url 'search' %}" role="search">
+                                {% csrf_token %}
+                                <div class="col-lg-6"><input type="search" class="form-control" name="searchstring"
+                                        placeholder="Search by ingredient..." aria-label="Search"></div>
+                                <div class="col-lg-2"><input type="submit" class="btn btn-light" value="Search">
+                                </div>
+                            </form>
+                            <div class="col-lg-2 justify-content-start">
+                                {% if user.is_authenticated %}
+                                <a href="{% url 'account_logout' %}" class="btn btn-light text-dark me-2" role="button"
+                                    href="{% url 'account_logout' %}">Logout</a>
+                                {% else %}
+                                <a href="{% url 'account_login' %}" type="button" class="btn btn-light text-dark me-2"
+                                    role="button">Login</a>
+                                <a href="{% url 'account_signup' %}" type="button" class="btn btn-dark text-nowrap"
+                                    role="button">Sign-up</a>
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -90,7 +93,7 @@
                 {% for message in messages %}
                 <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
                     {{ message | safe }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
 
                 {% endfor %}
@@ -105,29 +108,37 @@
         <!-- Content Goes here -->
         {% endblock content %}
     </main>
-    
 
+    <div class="btn-padding"></div>
 
     <!-- Footer -->
     <footer class="">
-        <div class="d-flex flex-wrap justify-content-between align-items-center py-3 mt-4 border-top px-5 container-fluid fixed-bottom opacity-100">
+        <div
+            class="d-flex flex-wrap justify-content-between align-items-center py-3 mt-4 border-top px-5 container-fluid fixed-bottom opacity-100">
             <div class="col-md-4 d-flex align-items-center">
-                <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1" previewlistener="true">
+                <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1"
+                    previewlistener="true">
                     <img src="{% static 'media/whiskey.png' %}" width="30" height="24">
                 </a>
                 <span class="mb-3 mb-md-0 text-body-secondary">© 2024 ThinkDrink,Inc</span>
             </div>
 
             <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-                <li class="ms-3"><a class="text-body-secondary" href="https://github.com/caketaster/" target="_blank"><img src="{% static 'media/github.png' %}" alt="github icon" height="25"></a></li><a class="text-body-secondary" href="https://github.com/caketaster/" target="_blank">
-                </a><li class="ms-3"><a class="text-body-secondary" href="https://github.com/caketaster/" target="_blank"></a><a class="text-body-secondary" href="https://www.linkedin.com/in/benjamin-norman-7619261a" target="_blank"><img src="{% static 'media/linkedin.png' %}" alt="linkedin icon" height="25"></a></li>
+                <li class="ms-3"><a class="text-body-secondary" href="https://github.com/caketaster/"
+                        target="_blank"><img src="{% static 'media/github.png' %}" alt="github icon" height="25"></a>
+                </li><a class="text-body-secondary" href="https://github.com/caketaster/" target="_blank">
+                </a>
+                <li class="ms-3"><a class="text-body-secondary" href="https://github.com/caketaster/"
+                        target="_blank"></a><a class="text-body-secondary"
+                        href="https://www.linkedin.com/in/benjamin-norman-7619261a" target="_blank"><img
+                            src="{% static 'media/linkedin.png' %}" alt="linkedin icon" height="25"></a></li>
             </ul>
 
         </div>
 
     </footer>
     <script>
-        setTimeout(function() {
+        setTimeout(function () {
             let messages = document.getElementById("msg");
             let alert = new bootstrap.Alert(messages);
             alert.close();

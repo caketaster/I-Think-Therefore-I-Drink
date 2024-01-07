@@ -48,7 +48,7 @@
         </div>
     </div>
     {% if user == post.author %}
-    <div id="update"><a href="{% url 'update' slug=post.slug %}" type="button" class="btn btn-light text-dark me-2"
+    <div class="btn-padding"><a href="{% url 'update' slug=post.slug %}" type="button" class="btn btn-light text-dark me-2"
             role="button">Propose update</a>
         <a href="{% url 'delete' slug=post.slug %}" type="button" class="btn btn-light text-dark me-2" role="button">Delete
             cocktail</a>
