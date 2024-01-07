@@ -1,5 +1,5 @@
 body {
-    background-color: #a3a1a1;
+    background-color: #cecaca;
 }
 
 .icon {
@@ -55,19 +55,44 @@ a {
     display: inline;
 }
 
-#whisky {
+#whiskey {
     color: red;
 }
 
-#whiskey {
+#whisky {
     color: green;
+}
+
+.whisky-card {
+    background-color: rgb(121, 182, 121);
+}
+
+.whiskey-card {
+    background-color: rgb(232, 119, 119);
 }
 
 #blurb {
     text-align: center;
     background-color: rgb(244, 244, 244);
+    color: rgb(55,55,55);
     border-radius: 10px;
     padding: 15px 20px;
     margin: 1rem auto;
     border: 0;
+}
+
+.ctext {
+    font-size: 11pt; 
+    font-family: Arial, sans-serif; 
+    color: rgb(55, 65, 81); 
+    font-variant-numeric: normal; 
+    font-variant-east-asian: normal; 
+    font-variant-alternates: normal; 
+    font-variant-position: normal; 
+    vertical-align: baseline; 
+    white-space-collapse: preserve;
+}
+
+.clink {
+    color: rgb(55, 55, 55) !important;
 }

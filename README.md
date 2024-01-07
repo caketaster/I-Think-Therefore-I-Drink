@@ -1,23 +1,60 @@
-I Think Therfore I Drinnk - A whisky/whiskey cocktail recipe site for drinkers
+# I Think Therfore I Drink - A whisky/whiskey cocktail recipe site for drinkers
 
-Author
+## Author
 Benjamin Norman
 
-Project Overview
+## Project Overview
 The Think-Drink project is a repository for recipes for whisky [scotch] and whiskey [bourbon] cocktails. Users can browse recipes, search by ingredient and submit their own cocktails for approval by the Admin. 
 
 You can view the deployed website here.
 
 (show site on various devices here)
 
+## Table of Contents
+* [Author]
+* [Project Overview]
+* [UX]
++ [Project Goal]
++ [User Stories]
+* [Design Choices]
++ [Colors]
++ [Typography]
++ [Images/Icons]
++ [Responsiveness]
+* [Wireframes]
++ [Home page]
++ [Recipe List page]
++ [Post Detail]
++ [User Favourites page]
+* [Features/Structure]
++ [Navigation]
++ [Plant List]
++ [Plant Detail]
++ [Likes]
++ [Register]
++ [Login/Logout]
++ [Header]
++ [Footer]
++ [Error 404/403/500]
++ [Features for Future Development]
+* [Data Model]
+* [Testing]
+* [Technologies Used]
+* [Deployment]
+* [Credits]
++ [Media]
++ [Tutorials/Borrowed content]
+* [Acknowledgements]
+
+# 
 Table of Contents:
 (make it and put it here)
 
 e.g. 
 
 STEM & LEAF - A PLANT CARE SPACE FOR BEGINNERS
-Author
-Project Overview
+* Author
+* Project Overview
 UX
 Project Goal
 User Stories
@@ -72,6 +109,8 @@ In order to maintain a positive community atmosphere as an admin user, I can app
 
 
 
+* ATTRIBUTION:
+
 
 header
 https://getbootstrap.com/docs/5.3/examples/headers/
@@ -84,17 +123,23 @@ Attribution for flaticon:
 
 
 Godather description 
-www.liquor.com
+https://www.liquor.com
 Bobby Burns
-www.cocktailwave.com
+https://www.cocktailwave.com
 Rusty Nail
-www.thespruceeats.com
+https://www.thespruceeats.com
 Old-Fashioned
-www.liquor.com
+https://www.liquor.com
 Sazerac
-www.thespruceeats.com
+https://www.thespruceeats.com
+
 
 
 
 Recipes:
-MyBar app (site:  )
+MyBar app (site: https://mybarapp.com)
+
+Tutorials for:
+djngo forms
+update
+delete

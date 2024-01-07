@@ -22,22 +22,24 @@
 
 <div class="container-fluid">
     <div class="row justify-content-center">
-        {% if request.session.submit_success %}
-        <h1>Done!</h1>
-        {% endif %}
+        
         <!-- Recipe Entries Column -->
         <div class="col-10 mt-3 left">
             <div class="row justify-content-center mx-3">
                 {% for post in post_list %}
                 <div class="col-sm-10 col-md-5 col-lg-4 col-xl-3">
-                    <div class="card mb-4">
+                    {% if "whiskey" in post.ingredients %}
+                    <div class="card mb-4 whiskey-card">
+                    {% else %}
+                    <div class="card mb-4 whisky-card">
+                    {% endif %}
                         <div class="card-body">
                             <div class="image-container">
-                                <!-- need to sort out where my images are going exactly -->
                                 {% if "placeholder" in post.featured_image.url %}
                                 <div class="img-wrap"><img class="card-img-top"
                                     src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.xYgnlEJ1sM5_6qk9QQMw8gHaE8%26pid%3DApi&f=1&ipt=ded1d03eefc8ac98fcb51a6f8f85b89c23017ef3de360f619d2a724d92f12818&ipo=images"></div>
-                                {% else %}                              
+                                {% else %}              
+                                <!-- Add img-wrap css -->
                                 <div class="img-wrap"><img class="card-img-top" src=" {{ post.featured_image.url }}"></div>
                                 {% endif %}
                                 <div class="image-flash">
@@ -45,8 +47,8 @@
                                 </div>
                             </div>
                             <a href="{% url 'post_detail' post.slug %}" class="post-link">
-                                <h2 class="card-title">{{ post.title }}</h2>
-                                <p class="card-text">{{ post.description | safe }}</p>
+                                <h2 class="card-title clink">{{ post.title }}</h2>
+                                <p class="card-text ctext">{{ post.description | safe }}</p>
                             </a>
                             <hr />
                             <p class="card-text text-muted h6">{{ post.created_on}} 

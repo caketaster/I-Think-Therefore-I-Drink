@@ -5,6 +5,7 @@ from .forms import PostForm
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
+from django.contrib import messages
 
 
 class PostList(generic.ListView):
@@ -61,7 +62,7 @@ def CreatePost(request):
             recipe.instructions = field_form.cleaned_data['instructions']
             recipe.author = User.objects.get(id = request.user.id)
             recipe.save()
-            request.session['submit_success'] = 'Cocktail successfully submitted to the Admin for approval'
+            messages.add_message(request, messages.INFO, 'Cocktail submitted to the Admin for approval')
             return redirect('home')
 
     return render(request, 'createpost.html', {'form': form})
@@ -112,6 +113,7 @@ def DeletePost(request, slug):
     if request.method=='POST':
         cocktail = Post.objects.get(slug=slug)
         cocktail.delete()
+        messages.add_message(request, messages.INFO, 'Cocktail deleted successfully')
         return redirect('home')
     else:
         cocktail = Post.objects.get(slug=slug)
@@ -119,19 +121,12 @@ def DeletePost(request, slug):
 
 def UpdatePost(request, slug):
     form = PostForm()
-    if request.method == 'POST':
-        # field_form = PostForm(request.POST)
-        
-        print("works 2")
-        recipe = Post()
-        recipe.title = request.POST['title']
-        recipe.slug = request.POST['title'].lower().replace(' ', '-')
-        recipe.description = request.POST['description']
-        recipe.ingredients = request.POST['ingredients']
-        recipe.instructions = request.POST['instructions']
-        recipe.author = User.objects.get(id = request.user.id)
-        recipe.save()
-        request.session['submit_success'] = 'Update submitted to the Admin for approval'
+    if request.method == 'POST':       
+        description = request.POST['description']
+        ingredients = request.POST['ingredients']
+        instructions = request.POST['instructions']
+        Post.objects.update_or_create(slug=slug, defaults={'description': description, 'ingredients': ingredients, 'instructions': instructions})
+        messages.add_message(request, messages.INFO, 'Update successfully completed')
         return redirect('home')
     
     cocktail = Post.objects.get(slug=slug)

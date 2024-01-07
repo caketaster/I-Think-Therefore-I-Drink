@@ -15,7 +15,11 @@
         {% for post in favourites %}
 
         <div class="col-sm-10 col-md-5 col-lg-4 col-xl-3">
-            <div class="card mb-4">
+            {% if "whiskey" in post.ingredients %}
+            <div class="card mb-4 whiskey-card">
+            {% else %}
+            <div class="card mb-4 whisky-card">
+            {% endif %}
                 <div class="card-body">
                     <div class="image-container">
                         <!-- need to sort out where my images are going exactly -->
@@ -30,8 +34,8 @@
                         </div>
                     </div>
                     <a href="{% url 'post_detail' post.slug %}" class="post-link">
-                        <h2 class="card-title">{{ post.title }}</h2>
-                        <p class="card-text">{{ post.description | safe }}</p>
+                        <h2 class="card-title clink">{{ post.title }}</h2>
+                        <p class="card-text ctext">{{ post.description | safe }}</p>
                     </a>
                     <hr />
                     <p class="card-text text-muted h6">{{ post.created_on}} 

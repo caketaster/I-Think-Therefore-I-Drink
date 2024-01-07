@@ -2,11 +2,13 @@
 
 {% block content %}
 
+{% if user == cocktail.author %}
+
 <div class="container">
     <div class="row">
         <div class="col-md-6 offset-md-3 mt-3">
 
-            <h2>Update cocktail</h2>
+            <h2>Update cocktail</h2><br>
 
             <form method="post">
 
@@ -17,14 +19,14 @@
                 {{ field }}
                 {% endfor %} -->
                 <!-- form.title -->
-                <label for="title">Title</label>
-                <input type="text" id="title" name="title" value="{{ cocktail.title }}">
-                <label for="description">Description</label>
-                <input type="text" id="description" name="description" value="{{ cocktail.description }}">
-                <label for="ingredients">Ingredients (please add a comma after each ingredient)</label>
-                <input type="text" id="ingredients" name="ingredients" value="{{ cocktail.ingredients }}">
-                <label for="instructions">Instructions (please add a comma after each step)</label>
-                <input type="text" id="instructions" name="instructions" value="{{ cocktail.instructions }}">
+                <p><label for="title">Title</label>
+                <input type="text" id="title" name="title" value="{{ cocktail.title }}" disabled></p><br>
+                <p><label for="description">Description</label>
+                <input type="text" id="description" name="description" value="{{ cocktail.description }}"></p><br>
+                <p><label for="ingredients">Ingredients (please add a comma after each ingredient)</label>
+                <input type="text" id="ingredients" name="ingredients" value="{{ cocktail.ingredients }}"></p><br>
+                <p><label for="instructions">Instructions (please add a comma after each step)</label>
+                <input type="text" id="instructions" name="instructions" value="{{ cocktail.instructions }}"></p><br>
 
                 <button class="btn btn-light" type="submit">Submit changes</button>
 
@@ -33,5 +35,16 @@
         </div>
     </div>
 </div>
+
+{% else %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4 mt-3">
+            <h2>Sorry, this is not your cocktail to update</h2>
+        </div>
+    </div>
+</div>
+
+{% endif %}
 
 {% endblock %}
