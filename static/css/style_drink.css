@@ -2,25 +2,6 @@ body {
     background-color: #cecaca;
 }
 
-.icon {
-    filter: invert(100%); 
-  }
-
-.footer {
-    position: sticky;
-    bottom: 0;
-    width: 100%;
-    margin-bottom: 0;
-    margin: 0 auto;
-    justify-content: center;
-    padding: 0;
-    opacity: 100%;
-}
-
-.footer .col-lg-8 {
-    border: 0;
-}
-
 .card-text {
     font: rgb(45, 45, 45);
     font-size: 0.7rem;
@@ -40,11 +21,6 @@ a {
 
 .img-wrap img { 
     object-fit: cover; width: 100%; height: 200px;
-}
-
-.opacity-100 {
-    opacity: 1!important;
-    background: rgb(244, 244, 244);
 }
 
 .btn-padding {
@@ -71,11 +47,14 @@ a {
     background-color: rgb(232, 119, 119);
 }
 
-#blurb {
-    text-align: center;
+.blurb-container {
     background-color: rgb(244, 244, 244);
-    color: rgb(55,55,55);
     border-radius: 10px;
+}
+
+.blurb {
+    text-align: center;
+    color: rgb(55,55,55);
     padding: 15px 20px;
     margin: 1rem auto;
     border: 0;
@@ -95,4 +74,34 @@ a {
 
 .clink {
     color: rgb(55, 55, 55) !important;
+}
+
+.center-txt {
+    text-align: center
+}
+
+/* footer */
+
+.icon {
+    filter: invert(100%); 
+  }
+
+.footer {
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    margin-bottom: 0;
+    margin: 0 auto;
+    justify-content: center;
+    padding: 0;
+    opacity: 100%;
+}
+
+.footer .col-lg-8 {
+    border: 0;
+}
+
+.opacity-100 {
+    opacity: 1!important;
+    background: rgb(244, 244, 244);
 }

@@ -4,22 +4,28 @@
 
 {% if user == cocktail.author %}
 
-<h2>Are you sure you want to delete {{ cocktail.title }}?</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 my-3 py-2 blurb-container">
+            <h2 class="center-txt">Are you sure you want to delete {{ cocktail.title }}?</h2>
 
-<div>
-    <form action="" method="post">
-        {% csrf_token %}
-        <input type="submit" value="Confirm" class="btn btn-light text-dark me-2 delete-btn"
-            role="button"></input>
-        </form>
-    <a href="{% url 'post_detail' slug=cocktail.slug %}" type="button" class="btn btn-light text-dark me-2"
-        role="button">Go back</a>
+            <div class="center-txt">
+                <form action="" method="post" class="my-2">
+                    {% csrf_token %}
+                    <input type="submit" value="Confirm" class="btn btn-dark me-2 delete-btn"
+                        role="button"></input>
+                </form>
+                <div class="inline-input"><a href="{% url 'post_detail' slug=cocktail.slug %}" type="button" class="btn btn-dark me-2"
+                    role="button">Go back</a></div>
+            </div>
+        </div>
+    </div>
 </div>
 
 {% else %}
 <div class="container">
     <div class="row">
-        <div class="col-md-4 offset-md-4 mt-3">
+        <div class="col-md-6 offset-md-3 my-3 py-2 blurb-container">
             <h2>Sorry, this is not your cocktail to delete</h2>
         </div>
     </div>

@@ -6,6 +6,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 
 class PostList(generic.ListView):
@@ -49,6 +50,7 @@ class PostDetail(View):
         )
 
 
+@login_required
 def CreatePost(request):
     form = PostForm()
     if request.method == 'POST':
@@ -67,7 +69,7 @@ def CreatePost(request):
 
     return render(request, 'createpost.html', {'form': form})
 
-
+@login_required
 def Favourites(request):
     favourites = Post.objects.filter(favourites=request.user)
     return render(request, 'user.html', {'favourites': favourites})
@@ -77,8 +79,10 @@ def AddFavourites(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
     if post.favourites.filter(id=request.user.id).count()==1:
         post.favourites.remove(request.user)
+        messages.add_message(request, messages.INFO, 'You have unfavourited this cocktail')
     else:
         post.favourites.add(request.user)
+        messages.add_message(request, messages.INFO, 'You have added this cocktail to your favourites')
     return redirect(request.META['HTTP_REFERER'])
 
 
@@ -104,8 +108,14 @@ def handler403(request, *args, **argv):
     
 
 def SearchIngredient(request):
-    searchstring = request.POST['searchstring']
-    search = Post.objects.filter(ingredients__icontains=searchstring)
+    if 'searchstring' in request.POST:
+        searchstring = request.POST['searchstring']
+        search = Post.objects.filter(ingredients__icontains=searchstring)
+        if len(search)==0:
+            messages.add_message(request, messages.INFO, 'No cocktail with that ingredient')
+            return redirect('home')
+    else: 
+        return redirect('home')
     return render(request, 'search.html', {'search': search})
 
 
@@ -118,6 +128,7 @@ def DeletePost(request, slug):
     else:
         cocktail = Post.objects.get(slug=slug)
         return render(request, 'delete.html', {'cocktail': cocktail})
+
 
 def UpdatePost(request, slug):
     form = PostForm()

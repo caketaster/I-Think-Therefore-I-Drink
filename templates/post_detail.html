@@ -8,8 +8,8 @@
                 <p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
-                <!-- The featured image URL goes in the src attribute -->
                 {% if "placeholder" in post.featured_image.url %}
+                <!-- need to wrap in a div and give it some CSS -->
                 <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.xYgnlEJ1sM5_6qk9QQMw8gHaE8%26pid%3DApi&f=1&ipt=ded1d03eefc8ac98fcb51a6f8f85b89c23017ef3de360f619d2a724d92f12818&ipo=images"
                     width="100%">
                 {% else %}
@@ -54,11 +54,5 @@
             cocktail</a>
     </div>
     {% endif %}
-    <!-- ?? -->
-    <div class="row">
-        <div class="col">
-            <hr>
-        </div>
-    </div>
 
     {% endblock content %}
