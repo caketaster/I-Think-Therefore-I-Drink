@@ -1,55 +1,60 @@
-# I Think Therfore I Drink - A whisky/whiskey cocktail recipe site for drinkers
+# I Think Therfore I Drink - A cocktail recipe site for whisky and whiskey drinkers
 
 ## Author
 Benjamin Norman
 
 ## Project Overview
-The Think-Drink project is a repository for recipes for whisky [scotch] and whiskey [bourbon] cocktails. Users can browse recipes, search by ingredient and submit their own cocktails for approval by the Admin. 
+The Think-Drink project is a repository for recipes for whisky [scotch] and whiskey [bourbon] cocktails. Users can browse recipes, search by ingredient and submit their own cocktails for approval by the admin. 
 
-You can view the deployed website here <link to deployed heroku site>.
+You can view the deployed website here <br>
+
+//link to deployed heroku site>.
 
 //https://ui.dev/amiresponsive
 
+- [I Think Therfore I Drink](#i-think-therfore-i-drink---a-whisky-whiskey-cocktail-recipe-site-for-drinkers)
+  * [Author](#author)
+  * [Project Overview](#project-overview)
+- [UX](#ux)
+  * [Project Goal](#project-goal)
+  * [User Stories](#user-stories)
+- [Design Choices](#design-choices)
+  * [Colours](#colours)
+  * [Typography](#typography)
+  * [Images/Icons](#images-icons)
+  * [Responsiveness](#responsiveness)
+- [Wireframes](#wireframes)
+  * [Home page](#home-page)
+  * [Post Detail](#post-detail)
+  * [User Favourites page](#user-favourites-page)
+- [Features/Structure](#features-structure)
+  * [Navigation](#navigation)
+  * [Messages](#messages)
+  * [Header/Navbar](#header-navbar)
+  * [Footer](#footer)
+  * [Error 404/403/500 Pages](#error-404-403-500-pages)
+  * [Features for Future Development](#features-for-future-development)
+- [Data Model](#data-model)
+- [CRUD](#crud)
+- [Testing](#testing)
+- [Technologies Used](#technologies-used)
+  * [Languages](#languages)
+  * [Database](#database)
+  * [Frameworks](#frameworks)
+  * [Media hosting](#media-hosting)
+  * [Libraries/Packages](#libraries-packages)
+  * [Other](#other)
+- [Deployment](#deployment)
+- [Credits](#credits)
+  * [Media](#media)
+- [Acknowledgements](#acknowledgements)
 
-## Table of Contents
-* [Author]
-* [Project Overview]
-* [UX]
-+ [Project Goal]
-+ [User Stories]
-* [Design Choices]
-+ [Colours]
-+ [Typography]
-+ [Images/Icons]
-+ [Responsiveness]
-* [Wireframes]
-+ [Home page]
-+ [Recipe List page]
-+ [Post Detail]
-+ [User Favourites page]
-* [Features/Structure]
-+ [Navigation]
-+ [Plant List]
-+ [Plant Detail]
-+ [Likes]
-+ [Register]
-+ [Login/Logout]
-+ [Header]
-+ [Footer]
-+ [Error 404/403/500]
-+ [Features for Future Development]
-* [Data Model]
-* [Testing]
-* [Technologies Used]
-* [Deployment]
-* [Credits]
-+ [Media]
-+ [Tutorials/Borrowed content]
-* [Acknowledgements]
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
 
 # UX
-
 ## Project Goal
+My aim was create a repository of recipes for whisky/whiskey-cocktail fans, where users can not only get ideas for cocktails but also add to the site, increasing site interaction and user satisfaction.
 
 ## User Stories
 For Administrator:
@@ -73,6 +78,8 @@ For Site User:
 # Design Choices
 ## Colours
 I wanted to keep a clean and simple look for the colours reminiscent of a whisky bar, so stuck mainly with shades between light grey and very dark grey, with flashes of colour in the site icon [orange] and card backgrounds [light-red, light-green]. The cocktail images also add appropriate colour to the site.
+
+I chose to keep buttons either light or dark (though I darkened basic Bootstrap btn-light class) to keep the theme consistent, the exceptions being the delete-confirmation button, as this performs a fairly major action that cannot be reversed, and the log out button (both a light orange colour, lightened from the btn-warning Bootstrap class).
 
 // add swatch 
 
@@ -181,51 +188,35 @@ CRUD is fully available for both users and the admin.
 - Psycopg2
 
 ## Other
-- Favicon.io
+- Flaticon
 - Balsamiq Wireframes
+- Font Awesome
 
 # Deployment
 // a lot to write in here... 
 
 # Credits
-( Tutorials/Borrowed content)<br>
-// need to add - attribution + find other things I used
+- The header/navbar was edited from [Bootstrap documentation examples](https://getbootstrap.com/docs/5.3/examples/headers/)
+- The footer was edited from [Bootstrap documentation examples](https://getbootstrap.com/docs/5.3/examples/footers/)
+- The 'favourite' icon came from [Font Awesome](https://fontawesome.com/icons/whiskey-glass?f=classic&s=solid)
+- The site icon came from [Flat Icon](https://www.flaticon.com/free-icons/)
+- The site banner was designed by me on [Canva](https://www.canva.com)
+- All cocktail images were taken and cropped from Google Images 
+<br>
+// need to add - attribution for tutorials + find other things I used
 
 ## Media
 - The cocktail ingredients and instructions were taken from [the MyBar app](https://mybarapp.com)
-- Cocktail descriptions wre borrowed and edited from [Spruce Eats](https://www.thespruceeats.com) (Rusty Nail, Sazerac), [Liquor.com](https://www.liquor.com) (Godfather, Old Fashioned), [Cocktail Wave](https://www.cocktailwave.com) (Bobby Burns)
+- Cocktail descriptions were borrowed and edited from [Spruce Eats](https://www.thespruceeats.com) (Rusty Nail, Sazerac), [Liquor.com](https://www.liquor.com) (Godfather, Old Fashioned), [Cocktail Wave](https://www.cocktailwave.com) (Bobby Burns)
 // more to add - whiskey sour, penicillin, blood and sand
 
 # Acknowledgements
 
 ATTRIBUTION:
 
-header
-https://getbootstrap.com/docs/5.3/examples/headers/
-footer
-https://getbootstrap.com/docs/5.3/examples/footers/
-fa whiskey glass
-https://fontawesome.com/icons/whiskey-glass?f=classic&s=solid
 Attribution for flaticon: 
 <a href="https://www.flaticon.com/free-icons/" title="flatiron icons">All icons from Flaticon</a>
 
-
-Godather description 
-https://www.liquor.com
-Bobby Burns
-https://www.cocktailwave.com
-Rusty Nail
-https://www.thespruceeats.com
-Old-Fashioned
-https://www.liquor.com
-Sazerac
-https://www.thespruceeats.com
-
-
-
-
-Recipes:
-MyBar app (site: https://mybarapp.com)
 
 Tutorials for:
 djngo forms

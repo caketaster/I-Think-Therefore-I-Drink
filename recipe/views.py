@@ -9,12 +9,14 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 
+# Home/index page - list of all cocktails
 class PostList(generic.ListView):
     model = Post
     queryset = Post.objects.filter(status=1).order_by('-created_on')
     template_name = 'index.html'
 
 
+# View details of each cocktail
 class PostDetail(View):
 
     def get(self, request, slug, *args, **kwargs):
@@ -50,6 +52,7 @@ class PostDetail(View):
         )
 
 
+# Cocktail submission form
 @login_required
 def CreatePost(request):
     form = PostForm()
@@ -75,6 +78,7 @@ def Favourites(request):
     return render(request, 'user.html', {'favourites': favourites})
 
 
+# Adding/removing favourites
 def AddFavourites(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
     if post.favourites.filter(id=request.user.id).count()==1:
@@ -86,6 +90,7 @@ def AddFavourites(request, post_id):
     return redirect(request.META['HTTP_REFERER'])
 
 
+# Error pages
 def error_404_view(request, exception):
     """
     Displays 404.html path
@@ -107,6 +112,7 @@ def handler403(request, *args, **argv):
     return render(request, '403.html', status=403)
     
 
+# Search functionality
 def SearchIngredient(request):
     if 'searchstring' in request.POST:
         searchstring = request.POST['searchstring']
@@ -119,6 +125,7 @@ def SearchIngredient(request):
     return render(request, 'search.html', {'search': search})
 
 
+# Delete functionality
 def DeletePost(request, slug):
     if request.method=='POST':
         cocktail = Post.objects.get(slug=slug)
@@ -130,6 +137,7 @@ def DeletePost(request, slug):
         return render(request, 'delete.html', {'cocktail': cocktail})
 
 
+# Update functionality
 def UpdatePost(request, slug):
     form = PostForm()
     if request.method == 'POST':       

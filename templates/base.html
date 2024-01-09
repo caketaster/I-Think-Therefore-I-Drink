@@ -45,13 +45,11 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <!-- need 'if user.is_authenticated'/else here -->
                                     <a href="{% url 'favourites' %}" class="nav-link text-white">
                                         Favourites
                                     </a>
                                 </li>
                                 <li>
-                                    <!-- need 'if user.is_authenticated'/else here -->
                                     <a href="{% url 'submitcocktail' %}" class="nav-link text-white">
                                         Submit a cocktail
                                     </a>
@@ -64,33 +62,45 @@
             </div>
             <div class="row">
                 <div class="px-3 py-2 border-bottom mb-3">
-                    <div class="d-flex flex-wrap justify-content-center" style="white-space: nowrap;">
-                        <div class="col-lg-12">
-                            <div class="col-lg-10">
-                                <form class="col-lg-8" method="POST" action="{% url 'search' %}" role="search">
-                                    {% csrf_token %}
-                                    <input type="search" class="col-lg-6 form-control" name="searchstring"
-                                        placeholder="Search by ingredient..." aria-label="Search">
-
-                                    <input type="submit" class="col-lg-2 btn btn-light" value="Search">
-                                </form>
-                                <div class="col-lg-2">
-                                    {% if user.is_authenticated %}
-                                    <a href="{% url 'account_logout' %}" class="btn btn-light text-dark me-2"
-                                        role="button" href="{% url 'account_logout' %}">Logout</a>
-                                    {% else %}
-                                    <a href="{% url 'account_login' %}" type="button"
-                                        class="btn btn-light text-dark me-2" role="button">Login</a>
-                                    <a href="{% url 'account_signup' %}" type="button" class="btn btn-dark text-nowrap"
-                                        role="button">Sign-up</a>
-                                    {% endif %}
+                    <!-- <div class="d-flex flex-wrap justify-content-center" style="white-space: nowrap;"> -->
+                    <div class="d-flex flex-row align-items-center px-5 mx-2">
+                        <!-- new search bar -->
+                        <div class="col-sm-10 col-md-6 col-lg-4">
+                            <div class="search me-auto d-none d-md-block input-group">
+                                <div class="form-outline" data-mdb-input-init>
+                                    <input type="search" id="form1" class="form-control"
+                                        placeholder="Search by ingredient..." />
                                 </div>
+                                <button type="button" class="btn btn-light" data-mdb-ripple-init>
+                                    <i class="fas fa-search"></i>
+                                </button>
                             </div>
+                        </div>
+                        <!-- old search bar -->
+                        <!-- <form class="col-lg-6" method="POST" action="{% url 'search' %}" role="search">
+                            {% csrf_token %}
+                            <input type="search" class="col-lg-6 form-control" name="searchstring"
+                                placeholder="Search by ingredient..." aria-label="Search">
+
+                            <input type="submit" class="col-lg-2 btn btn-light" value="Search">
+                        </form> -->
+
+                        <!-- login/logout/signup buttons -->
+                        <div class="d-flex ms-auto">
+                            {% if user.is_authenticated %}
+                            <a href="{% url 'account_logout' %}" class="btn btn-light text-dark me-2" role="button"
+                                href="{% url 'account_logout' %}">Logout</a>
+                            {% else %}
+                            <a href="{% url 'account_login' %}" type="button" class="btn btn-light text-dark me-2"
+                                role="button">Login</a>
+                            <a href="{% url 'account_signup' %}" type="button" class="btn btn-dark text-nowrap"
+                                role="button">Sign-up</a>
+                            {% endif %}
+
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
     </header>
 
     <div class="container">

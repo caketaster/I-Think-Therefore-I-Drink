@@ -27,6 +27,14 @@ a {
     padding-bottom: 80px;
 }
 
+.btn-light {
+    background-color: #b3b2b2;
+}
+
+.btn-warning {
+    background-color: rgb(231, 162, 78);
+}
+
 .delete-btn {
     display: inline;
 }
