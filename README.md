@@ -100,7 +100,7 @@ I left the typography as the basic Bootstrap typeface (Open Sans) as I felt it h
 ![site banner](static/media/readme/site-banner.jpg)<br><br>
 - The 'favourite' icon is a whisky glass, which fits the theme of the site. <br>
 ![favourite icon](static/media/readme/site-fave.jpg)<br>
-- The 'steps' icon is a man climbing steps, indicating the number of steps needed to make each cocktail.<br> 
+- The 'steps' icon is a man taking steps (well, walking), indicating the number of steps needed to make each cocktail.<br> 
 ![steps icon](static/media/readme/site-steps.jpg)<br>
 
 ## Responsiveness
@@ -203,9 +203,9 @@ CRUD is fully available for both users and the admin.
 - Psycopg2
 
 ## Other
-- Flaticon
-- Balsamiq Wireframes
-- Font Awesome
+- [Flaticon](https://www.flaticon.com/)
+- [Balsamiq Wireframes](https://balsamiq.com/)
+- [Font Awesome](https://fontawesome.com/)
 - [CSS Gradient](https://cssgradient.io/)
 
 # Deployment

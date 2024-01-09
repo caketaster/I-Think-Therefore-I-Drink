@@ -13,7 +13,7 @@
                 
             <p class="blurb"><b>Some recipes work best with whisky, others with whiskey. Check the colour of the recipe card to see which is which - <span id="whisky">GREEN</span> for whisky and <span id="whiskey">RED</span> for whiskey. </b></p>
 
-            <p class="blurb"><b>You can see how many steps are required to make the cocktail on each cocktail card, indicated by the <img src="../static/media/steps.png" alt="steps icon" class="steps"> icon, and favourite a cocktail by clicking on the blue whisky glass underneath each cocktail.</b></p>
+            <p class="blurb"><b>You can see how many steps are required to make the cocktail on each cocktail card, indicated by the <i class="bi bi-person-walking"></i> icon, and favourite a cocktail by clicking on the blue whisky glass underneath each cocktail.</b></p>
                 
             <p class="blurb"><b>If you'd like to submit a cocktail for publication, please <a href="{% url 'account_login' %}" >log in</a> and go to the Submit a cocktail button in the top-right of the page. You can also edit and delete any submissions that you've added to the site. </b></p>
 
@@ -36,7 +36,6 @@
                     <div class="card mb-4 whisky-card">
                     {% endif %}
                         <div class="card-body" >
-                            <!-- style="max-height: 370px;" -->
                             <div class="image-container">
                                 {% if "placeholder" in post.featured_image.url %}
                                 <div class="img-wrap">
@@ -57,7 +56,7 @@
                                     <p class="card-text ctext">{{ post.description | safe }}</p>
                             </a>
                             <hr>
-                            <p class="card-text text-muted h6">{{ post.created_on}} <img src="../static/media/steps.png" alt="steps icon" class="steps" >{{ post.steps }}
+                            <p class="card-text text-muted h6">{{ post.created_on}} <i class="bi bi-person-walking walk-card"></i> {{ post.steps }}
                                 <a href="{% url 'addfavourites' post_id=post.id %}" class="fa-solid fa-whiskey-glass"></a>
                                 {{ post.number_of_favourites }}</p>
                         </div>

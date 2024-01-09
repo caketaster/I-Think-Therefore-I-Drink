@@ -24,7 +24,7 @@ a {
 
 .blurb {
     text-align: center;
-    color: rgb(55,55,55);
+    color: rgb(69, 69, 69);
     padding: 15px 20px;
     margin: 1rem auto;
     border: 0;
@@ -33,7 +33,7 @@ a {
 .ctext {
     font-size: 11pt; 
     font-family: Arial, sans-serif; 
-    color: rgb(55, 65, 81); 
+    color: rgb(69, 69, 69); 
     font-variant-numeric: normal; 
     font-variant-east-asian: normal; 
     font-variant-alternates: normal; 
@@ -67,10 +67,18 @@ a {
     object-fit: cover; width: 100%; max-height: 400px;
 }
 
-.steps {
+.bi-person-walking {
     height: 15px;
     width: 15px;
-    filter: contrast(40%);
+    filter: contrast(60%);
+}
+
+.walk-card {
+    margin-left: 0.6rem;
+}
+
+.fa-whiskey-glass {
+    margin-left: 0.6rem;
 }
 
 
