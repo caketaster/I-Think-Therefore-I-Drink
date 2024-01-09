@@ -19,6 +19,7 @@ class Post(models.Model):
     favourites = models.ManyToManyField(User, related_name='recipe_favourites', blank=True)
     ingredients = models.TextField()
     instructions = models.TextField()
+    steps = models.IntegerField()
 
     class Meta:
         # in descending order by created on

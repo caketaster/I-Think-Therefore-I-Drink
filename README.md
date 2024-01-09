@@ -31,6 +31,9 @@ You can view the deployed website here <br>
   * [Navigation](#navigation)
   * [Messages](#messages)
   * [Header/Navbar](#header-navbar)
+  * [Cocktail Cards](#cocktail-cards)
+  * [Update](#update)
+  * [Delete](#delete)
   * [Footer](#footer)
   * [Error 404/403/500 Pages](#error-404-403-500-pages)
   * [Features for Future Development](#features-for-future-development)
@@ -74,12 +77,13 @@ For Site User:
 - As a Site User I can view the number of favourites on each recipe so that I can see which is the most popular
 - As a Site User I can view a list of recipes so that I can select one to read
 - As a Site User I can click on a recipe so that I can read the full text
+- As a Site User I can see how many steps are required to make each cocktail so that I can assess the relative difficulty level of making each cocktail
 
 # Design Choices
 ## Colours
-I wanted to keep a clean and simple look for the colours reminiscent of a whisky bar, so stuck mainly with shades between light grey and very dark grey, with flashes of colour in the site icon [orange] and card backgrounds [light-red, light-green]. The cocktail images also add appropriate colour to the site.
+I wanted to keep a clean and simple look for the colours reminiscent of a whisky bar, so stuck mainly with shades between light grey and very dark grey, with flashes of colour in the site icon [orange] and card backgrounds [light-red, light-green]. The background has a linear colour-shift from dark-grey to light-grey and back again. The cocktail images also add appropriate colour to the site.
 
-I chose to keep buttons either light or dark (though I darkened basic Bootstrap btn-light class) to keep the theme consistent, the exceptions being the delete-confirmation button, as this performs a fairly major action that cannot be reversed, and the log out button (both a light orange colour, lightened from the btn-warning Bootstrap class).
+I chose to keep buttons either light or dark (though I darkened basic Bootstrap btn-light class) to keep the theme consistent, the exceptions being the delete-confirmation button, as this performs a fairly major action that cannot be reversed, and the log out button (both a light orange colour, adapted from the btn-warning Bootstrap class).
 
 // add swatch 
 
@@ -96,6 +100,8 @@ I left the typography as the basic Bootstrap typeface (Open Sans) as I felt it h
 ![site banner](static/media/readme/site-banner.jpg)<br><br>
 - The 'favourite' icon is a whisky glass, which fits the theme of the site. <br>
 ![favourite icon](static/media/readme/site-fave.jpg)<br>
+- The 'steps' icon is a man climbing steps, indicating the number of steps needed to make each cocktail.<br> 
+![steps icon](static/media/readme/site-steps.jpg)<br>
 
 ## Responsiveness
 The site was designed with Bootstrap 5 to be fully responsive at all screen sizes within reason.
@@ -139,6 +145,15 @@ The header contains a clickable icon and banner (both of which redirect to the h
 
 Beneath the navbar is a **Search by ingredient** search bar, and buttons to log in, log out and/or sign up, depending on the logged-in state of the user.
 
+## Cocktail Cards
+Users can see how many steps [i.e. instructions] are required to make each cocktail, and favourite a cocktail from the relevant card, or click into each card to show the ingredients and instructions.
+
+## Update
+Users can update any of their published cocktails linked from the Post Detail page, but not those of other users.
+
+## Delete
+Users can delete any of their published cocktails linked from the Post Detail page, but not those of other users.
+
 ## Footer
 The footer contains 3 clickable items: the site icon (which redirects to the homepage), plus 2 social media icons which redirect to the author's Linkedin and GitHub pages. 
 
@@ -148,7 +163,7 @@ Error pages for 404, 403 and 500 are included.
 ## Features for Future Development
 There are two main features I'd like to include in future: live search and approval for updates.
 
-To add a search function that updates as you type would involve the addition of some JavaScript to the search functionality. I did include this for lack of time.
+To add a search function that updates as you type would involve the addition of some JavaScript to the search functionality. I did not include this for lack of time.
 
 Currently when a user updates one of his/her cocktail recipes it is not sent to the Admin for approval. This is a feature I would like to add to prevent abuse of the site, though could not find a way to include in in my current site iteration.
 
@@ -191,6 +206,7 @@ CRUD is fully available for both users and the admin.
 - Flaticon
 - Balsamiq Wireframes
 - Font Awesome
+- [CSS Gradient](https://cssgradient.io/)
 
 # Deployment
 // a lot to write in here... 

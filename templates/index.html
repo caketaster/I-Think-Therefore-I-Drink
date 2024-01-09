@@ -5,17 +5,19 @@
 <!-- index page - list of all published cocktail recipes on the site -->
 <div class="container ">
     <div class="row">
-        <div class="col-md-10 offset-md-1 my-4 blurb-container">
+        <div class="col-md-10 offset-md-1 my-4 text-container">
 
-            <b><p class="blurb">Welcome to <strong>I Think, Therefore I Drink</strong>, your repository for cocktail recipes for whisky and whiskey cocktails. </p>
+            <p class="blurb"><b>Welcome to <strong>I Think, Therefore I Drink</strong>, your repository for cocktail recipes for whisky and whiskey cocktails. </b></p>
 
-            <p class="blurb">For simplicity, we'll be referring to whisky and scotch interchangeably, and likewise for whiskey and bourbon. If using Japanese or Canadian whiskies, substitute them for scotch, and if using Irish whiskey substitute it for bourbon. </p>
+            <p class="blurb"><b>For simplicity, we'll be referring to whisky and scotch interchangeably, and likewise for whiskey and bourbon. If using Japanese or Canadian whiskies, substitute them for scotch, and if using Irish whiskey substitute it for bourbon. </b></p>
                 
-            <p class="blurb">Some recipes work best with whisky, others with whiskey. Check the colour of the recipe card to see which is which - <span id="whisky">GREEN</span> for whisky and <span id="whiskey">RED</span> for whiskey. </p>
-                
-            <p class="blurb">If you'd like to submit a cocktail for publication, please <a href="{% url 'account_login' %}" >log in</a> and go to the Submit a cocktail button in the top-right of the page. You can also edit and delete any submissions that you've added to the site. </p>
+            <p class="blurb"><b>Some recipes work best with whisky, others with whiskey. Check the colour of the recipe card to see which is which - <span id="whisky">GREEN</span> for whisky and <span id="whiskey">RED</span> for whiskey. </b></p>
 
-            <p class="blurb">Please drink responsibly!</p></b>
+            <p class="blurb"><b>You can see how many steps are required to make the cocktail on each cocktail card, indicated by the <img src="../static/media/steps.png" alt="steps icon" class="steps"> icon, and favourite a cocktail by clicking on the blue whisky glass underneath each cocktail.</b></p>
+                
+            <p class="blurb"><b>If you'd like to submit a cocktail for publication, please <a href="{% url 'account_login' %}" >log in</a> and go to the Submit a cocktail button in the top-right of the page. You can also edit and delete any submissions that you've added to the site. </b></p>
+
+            <p class="blurb"><b>Please drink responsibly!</b></p>
         </div>
     </div>
 </div>
@@ -33,13 +35,18 @@
                     {% else %}
                     <div class="card mb-4 whisky-card">
                     {% endif %}
-                        <div class="card-body">
+                        <div class="card-body" >
+                            <!-- style="max-height: 370px;" -->
                             <div class="image-container">
                                 {% if "placeholder" in post.featured_image.url %}
-                                <div class="img-wrap"><img class="card-img-top"
-                                    src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.xYgnlEJ1sM5_6qk9QQMw8gHaE8%26pid%3DApi&f=1&ipt=ded1d03eefc8ac98fcb51a6f8f85b89c23017ef3de360f619d2a724d92f12818&ipo=images"></div>
+                                <div class="img-wrap">
+                                    <img class="card-img-top" alt="placeholder image"
+                                    src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.xYgnlEJ1sM5_6qk9QQMw8gHaE8%26pid%3DApi&f=1&ipt=ded1d03eefc8ac98fcb51a6f8f85b89c23017ef3de360f619d2a724d92f12818&ipo=images">
+                                </div>
                                 {% else %}              
-                                <div class="img-wrap"><img class="card-img-top" src=" {{ post.featured_image.url }}"></div>
+                                <div class="img-wrap">
+                                    <img class="card-img-top" alt="featured image" src=" {{ post.featured_image.url }}">
+                                </div>
                                 {% endif %}
                                 <div class="image-flash">
                                     <p class="author">Author: {{ post.author }}</p>
@@ -47,10 +54,10 @@
                             </div>
                             <a href="{% url 'post_detail' post.slug %}" class="post-link">
                                 <h2 class="card-title clink">{{ post.title }}</h2>
-                                <p class="card-text ctext">{{ post.description | safe }}</p>
+                                    <p class="card-text ctext">{{ post.description | safe }}</p>
                             </a>
-                            <hr />
-                            <p class="card-text text-muted h6">{{ post.created_on}} 
+                            <hr>
+                            <p class="card-text text-muted h6">{{ post.created_on}} <img src="../static/media/steps.png" alt="steps icon" class="steps" >{{ post.steps }}
                                 <a href="{% url 'addfavourites' post_id=post.id %}" class="fa-solid fa-whiskey-glass"></a>
                                 {{ post.number_of_favourites }}</p>
                         </div>
