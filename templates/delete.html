@@ -4,12 +4,12 @@
 
 {% if user == cocktail.author %}
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-4 offset-md-4 my-4 py-3 text-container center-txt">
-            <h2 class="center-txt">Are you sure you want to delete {{ cocktail.title }}?</h2>
+<div class="container p-0">
+    <div class="row justify-content-center">
+        <div class=" col-10 col-md-4 offset-md-4 my-4 py-3 text-container center-txt m-3 m-md-1">
+            <h2 class="center-txt mb-3">Are you sure you want to delete {{ cocktail.title }}?</h2>
 
-            <div class="center-txt">
+            <div class="center-txt mb-3">
                 <form action="" method="post" class="my-2">
                     {% csrf_token %}
                     <input type="submit" value="Confirm" class="btn btn-warning me-2 delete-btn"

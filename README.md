@@ -81,7 +81,7 @@ For Site User:
 
 # Design Choices
 ## Colours
-I wanted to keep a clean and simple look for the colours reminiscent of a whisky bar, so stuck mainly with shades between light grey and very dark grey, with flashes of colour in the site icon [orange] and card backgrounds [light-red, light-green]. The background has a linear colour-shift from dark-grey to light-grey and back again. The cocktail images also add appropriate colour to the site.
+I wanted to keep a clean and simple look for the colours reminiscent of a whisky bar, so stuck mainly with shades between light grey and very dark grey, with flashes of colour in the site icon [orange] and card backgrounds [light-red, light-green]. The background has a linear colour-shift from dark-grey to light-grey and back again, remininscent of burnished metal. The cocktail images also add appropriate colour to the site.
 
 I chose to keep buttons either light or dark (though I darkened basic Bootstrap btn-light class) to keep the theme consistent, the exceptions being the delete-confirmation button, as this performs a fairly major action that cannot be reversed, and the log out button (both a light orange colour, adapted from the btn-warning Bootstrap class).
 
@@ -99,7 +99,7 @@ I left the typography as the basic Bootstrap typeface (Open Sans) as I felt it h
 - The banner gives the site name and again is reminiscent of a classic whisky bar. <br>
 ![site banner](static/media/readme/site-banner.jpg)<br><br>
 - The 'favourite' icon is a whisky glass, which fits the theme of the site. <br>
-![favourite icon](static/media/readme/site-fave.jpg)<br>
+![favourite icon](static/media/readme/site-fave.jpg)<br><br>
 - The 'steps' icon is a man taking steps (well, walking), indicating the number of steps needed to make each cocktail.<br> 
 ![steps icon](static/media/readme/site-steps.jpg)<br>
 
@@ -115,7 +115,7 @@ I originally envisaged the blurb to be separate from the main list of recipes, t
 ![recipe list mobile](static/media/readme/wire-list-mob.jpg)<br><br> 
 
 ## Post Detail
-The post detail page did not change much fro my initial plan.
+The post detail page did not change much from my initial plan.
 ![post desktop](static/media/readme/wire-post-desk.jpg)<br>
 ![post mobile](static/media/readme/wire-post-mob.jpg)<br>
 
@@ -217,6 +217,7 @@ CRUD is fully available for both users and the admin.
 - The 'favourite' icon came from [Font Awesome](https://fontawesome.com/icons/whiskey-glass?f=classic&s=solid)
 - The site icon came from [Flat Icon](https://www.flaticon.com/free-icons/)
 - The site banner was designed by me on [Canva](https://www.canva.com)
+- The person walking icon was taken and edited from [Bootstrap Icons](https://icons.getbootstrap.com/)
 - All cocktail images were taken and cropped from Google Images 
 <br>
 // need to add - attribution for tutorials + find other things I used

@@ -8,4 +8,3 @@ class PostForm(forms.ModelForm):
         fields = ['title', 'description', 'ingredients', 'instructions']
         labels = {'title': 'Title', 'description': 'Description:', 'ingredients': 'Ingredients (Please add a comma between each ingredient):', 'instructions': 'Instructions (Please add a comma between each step):'}
     
-
