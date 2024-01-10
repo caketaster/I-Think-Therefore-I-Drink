@@ -1,4 +1,4 @@
-# I Think Therfore I Drink - A cocktail recipe site for whisky and whiskey drinkers
+# I Think Therefore I Drink [Think-Drink] - A cocktail recipe site for whisky and whiskey drinkers
 
 ## Author
 Benjamin Norman
@@ -6,13 +6,15 @@ Benjamin Norman
 ## Project Overview
 The Think-Drink project is a repository for recipes for whisky [scotch] and whiskey [bourbon] cocktails. Users can browse recipes, search by ingredient and submit their own cocktails for approval by the admin. 
 
-You can view the deployed website here <br>
+Designed within an AGILE framework, The site has full CRUD functionality for Users and Admins. 
 
-//link to deployed heroku site>.
+You can view the deployed website here: <br>
 
-//https://ui.dev/amiresponsive
+https://i-think-therefore-i-drink-44cd107f3be4.herokuapp.com/
 
-- [I Think Therfore I Drink](#i-think-therfore-i-drink---a-whisky-whiskey-cocktail-recipe-site-for-drinkers)
+// https://ui.dev/amiresponsive <- make a sample image
+
+- [I Think Therefore I Drink](#i-think-therefore-i-drink---a-whisky-whiskey-cocktail-recipe-site-for-drinkers)
   * [Author](#author)
   * [Project Overview](#project-overview)
 - [UX](#ux)
@@ -48,6 +50,10 @@ You can view the deployed website here <br>
   * [Libraries/Packages](#libraries-packages)
   * [Other](#other)
 - [Deployment](#deployment)
+  * [ElephantSQL](##elephantsql)
+  * [Cloudinary](##cloudinary)
+  * [Heroku](##heroku)
+  * [GitHub/GitPod](##github-gitpod)
 - [Credits](#credits)
   * [Media](#media)
 - [Acknowledgements](#acknowledgements)
@@ -209,7 +215,69 @@ CRUD is fully available for both users and the admin.
 - [CSS Gradient](https://cssgradient.io/)
 
 # Deployment
-// a lot to write in here... 
+## ElephantSQL
+1. Create a free account on ElephantSQL, access the dashboard and create a new instance (input a name, choose Tiny Turtle plan, select a region).
+2. Access to the dashcoard and copy the database URL.
+
+## Cloudinary
+1. Create an account on Cloudinary.
+2. Follow the instructions to create a media hosting account (free level).
+3. Copy the Cloudinary database URL.
+
+## Heroku
+1. Create a new app in Heroku, choose a unique name and region.
+2. Go to settings and add a new config var of DATABASE_URLpython with the value of the URL from ElephantSQL.
+3. Add host name of the Heroku app name to ALLOWED HOSTS in settings.py:
+
+`ALLOWED_HOSTS = ['{heroku deployed site URL here}', 'localhost' ]`
+
+## GitHub/GitPod
+1. Create a new repository on GitHub, open a new workspace with GitPod.
+2. Install django pip3 install django==3.2.3.
+3. Create a new project within Django.
+4. Run migrations, create an admin super-user.
+5. Install  `pip3 install dj_database_url==0.5.0 psycopg2` and freeze requirements  pip freeze > requirements.txt
+6. Add  `import os` and import `dj_database_url` to settings.py
+7. To connect the new database, paste in the ElephantSQL URL copied earlier.
+
+`DATABASES = {
+     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+ }`
+
+8. To ensure connection to the external database, run `python3 manage.py makemigrations` then run `python3 manage.py migrate`
+9. Install pip3 install gunicorn and run  pip freeze > requirements.txt
+10. Create a Procfile in the root directory and include web: gunicorn project_name.wsgi:applications
+11. Generate a SECRET_KEY, add it to Heroku config vars.
+12. Create env.py file and include it in the .gitignore file, and add the SECRET_KEY, Cloudinary URL and ElephantSQL DATABASE_URL to environment variables:
+
+![env.py](static/media/readme/readme-env.jpg)
+
+13. Add the below to settings.py:
+
+`SECRET_KEY = os.environ.get('SECRET_KEY', ' ')`
+`DEBUG = 'DEVELOPMENT' in os.environ`
+
+14. Commit and push to GitHub.
+15. In Heroku, add `DISABLE_COLLECT_STATIC = 1` to Heroku config vars.
+16. Connect the project to the GitHub repository using personal account login.
+17. Add Cloudinary URL variable to the Heroku config vars:
+
+![staticfiles](static/media/readme/readme-configvars.jpg)
+
+18. Add Cloudinary to installed apps in settings.py, add static/media file settings:
+
+![installed apps](static/media/readme/readme-installed.jpg)
+(note - some extra installations are shown in this screenshot that are not essential for deployment)
+
+![staticfiles](static/media/readme/readme-staticfiles.jpg)
+
+19. Add template directories in settings.py, add Heroku host name to allowed hosts and add directory files:
+
+![staticfiles](static/media/readme/readme-templates.jpg)
+![staticfiles](static/media/readme/readme-allowed.jpg)
+
+20. Go to settings in Heroku and perform a manual deployment and check for any issues.
+21. In Heroku settings, enable automatic deployments.
 
 # Credits
 - The header/navbar was edited from [Bootstrap documentation examples](https://getbootstrap.com/docs/5.3/examples/headers/)
@@ -220,6 +288,7 @@ CRUD is fully available for both users and the admin.
 - The person walking icon was taken and edited from [Bootstrap Icons](https://icons.getbootstrap.com/)
 - All cocktail images were taken and cropped from Google Images 
 <br>
+- The Code Institute 'I Think Therefore I Blog' project provided the basic framework for my site. 
 // need to add - attribution for tutorials + find other things I used
 
 ## Media
@@ -229,13 +298,12 @@ CRUD is fully available for both users and the admin.
 
 # Acknowledgements
 
-ATTRIBUTION:
-
-Attribution for flaticon: 
-<a href="https://www.flaticon.com/free-icons/" title="flatiron icons">All icons from Flaticon</a>
 
 
-Tutorials for:
-djngo forms
+
+
+// to add in to Credits:
+Tutorials and videos I used for:
+django forms
 update
 delete
