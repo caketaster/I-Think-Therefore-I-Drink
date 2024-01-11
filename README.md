@@ -187,6 +187,8 @@ Other useful future additions could be rating system for cocktails where users c
 
 Card text is clipped to make sure all cards are the same size. Some text styling (fade-out/ellipsis on clip) would make the site slightly more attractive. 
 
+When copy-pasting in Descriptions for cocktails, the formatting is not stripped from the text, causing display issues. Stripping the text of all formatting should be added in future.
+
 # Data Model
 There is one custom data structure associated with *I Think, Therefore I Drink*: the post model. The post model is used to store the data for each cocktail recipe.
 
@@ -225,7 +227,8 @@ CRUD is fully available for both users and the admin.
 
 # Testing
 ## Validation checking
-All the following pages were checked, returning no errors or warnings:
+### HTML Validation
+All the following pages were checked using the [W3 Validator](https://validator.w3.org/), returning no errors or warnings:
 - Homepage
 
 - Search page
@@ -249,6 +252,58 @@ All the following pages were checked, returning no errors or warnings:
 - 404 page
 
 ![validation check](static/media/readme/html-validation.jpg)<br>
+
+### CSS Validation
+CSS was checked through the [W3 CSS Validator](https://jigsaw.w3.org/css-validator/validator), returning no errors: <br>
+![CSS validation](static/media/readme/css-validation.jpg)<br>
+
+### Python Validation
+
+The following pages were tested through the [CI Python Linter](https://pep8ci.herokuapp.com/):
+thinkdrink/urls.py
+recipe/views.py
+recipe/urls.py - OK
+recipe/models.py
+recipe/forms.py - OK
+recipe/admin.py - OK
+
+// errors - line too long
+
+// ? As only one tiny snippet of JavaScript was used (for the message timeout function), and this was taken directly from the walkthrough project this was not validated.
+
+## Visual (UI) Testing: Cross Browser and Cross Device Testing
+The site was virtually tested across a range of screen sizes and devices
+
+| **TOOL / Device**           | **BROWSER**      | **OS**  | **SCREEN WIDTH** | Passed 
+|-----------------------------|------------------|---------|------------------|---------
+| dev tools: Galaxy Fold      | Chrome           | android | 280 x 653 px     |Yes
+| dev tools: iPhone SE        | Chrome           | iOs     | 375 x 667 px     |Yes
+| dev tools: Samsung S8+      | Chrome           | android | 360 x 740 px     |Yes
+| dev tools: Pixel 6         | Chrome           | android | 393 x 851 px     |Yes
+| dev tools: iPhone 14 Pro Max   | Chrome           | iOs     | 430 x 932 px     |Yes
+| browserstack: Nexus 7       | Firefox          | android | 960 x 600 px     |Yes
+| real tablet: Pixel Tablet   | Chrome           | android | 834 x 1075 px    |Yes
+| real laptop: Macbook Pro 2019   | Safari & Chrome | iOs     | 1400 x 766 px    |Yes
+| broswerstack                | Firefox          | iOs     | 1440 x 672 px    |Yes
+| browserstack                | Edge 113         | windows | 1440 x 672 px    |Yes
+
+## Lighthouse Testing
+Lighthouse performance was unimpressive, largely due to slow contentful paint loads. 
+
+I'm living in China with relatively slow internet, and have to run tests using a VPN, which inevitably slows web traffic. It's unknown how much performance would improve if in a location with no such VPN requirements. 
+
+### Mobile
+![mobile lighthouse](static/media/readme/lighthouse-mob.jpg)<br>
+
+### Desktop
+![desktop lighthouse](static/media/readme/lighthouse-desk.jpg)<br>
+
+- Performance on both screen sizes can improve, where performance is slower due to first contentful paint and largest contentful paint metrics.
+- This is a result of render-blocking resources mostly from Bootstrap and Cloudinary which requires further investigation to resolve.
+
+## WAVE Testing
+I tested the homepage, favourites, search and post detail pages. 
+Several 'low contrast' errors were returned, and I made minor colour changes, although I found this to be a balancing act: the site is by design various shades of grey and rather low contrast; I did not want to break the look of the site by making major changes. 
 
 # Technologies Used
 ## Languages
@@ -370,3 +425,6 @@ update
 delete
 
 // remake ToC in light of additions
+
+// Tutor support: python linter line too long
+// Lighthouse: error (have pic), and low performance

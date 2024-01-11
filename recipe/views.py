@@ -30,7 +30,7 @@ class PostDetail(View):
         ingredients = ingredients.split(',')
         i = 0
         while i < len(ingredients):
-            ingredients[i] = ingredients[i].strip().strip('\t')      
+            ingredients[i] = ingredients[i].strip().strip('\t')
             i += 1
 
         instructions = post.instructions
@@ -65,13 +65,13 @@ def CreatePost(request):
             recipe.description = field_form.cleaned_data['description']
             recipe.ingredients = field_form.cleaned_data['ingredients']
             recipe.instructions = field_form.cleaned_data['instructions']
-            recipe.author = User.objects.get(id = request.user.id)
-            # recipe.steps = len(recipe.instructions.split(','))
+            recipe.author = User.objects.get(id=request.user.id)
             recipe.save()
             messages.add_message(request, messages.INFO, 'Cocktail submitted to the Admin for approval')
             return redirect('home')
 
     return render(request, 'createpost.html', {'form': form})
+
 
 @login_required
 def Favourites(request):
@@ -111,24 +111,24 @@ def handler403(request, *args, **argv):
     Displays 403.html path
     """
     return render(request, '403.html', status=403)
-    
+
 
 # Search functionality
 def SearchIngredient(request):
-    if 'searchstring' in request.POST:
+    if  'searchstring' in request.POST:
         searchstring = request.POST['searchstring']
         search = Post.objects.filter(ingredients__icontains=searchstring)
         if len(search)==0:
             messages.add_message(request, messages.INFO, 'No cocktail with that ingredient')
             return redirect('home')
-    else: 
+    else:
         return redirect('home')
     return render(request, 'search.html', {'search': search})
 
 
 # Delete functionality
 def DeletePost(request, slug):
-    if request.method=='POST':
+    if  request.method=='POST':
         cocktail = Post.objects.get(slug=slug)
         cocktail.delete()
         messages.add_message(request, messages.INFO, 'Cocktail deleted successfully')
@@ -141,14 +141,14 @@ def DeletePost(request, slug):
 # Update functionality
 def UpdatePost(request, slug):
     form = PostForm()
-    if request.method == 'POST':       
+    if request.method == 'POST':
         description = request.POST['description']
         ingredients = request.POST['ingredients']
         instructions = request.POST['instructions']
         Post.objects.update_or_create(slug=slug, defaults={'description': description, 'ingredients': ingredients, 'instructions': instructions})
         messages.add_message(request, messages.INFO, 'Update successfully completed')
         return redirect('home')
-    
+
     cocktail = Post.objects.get(slug=slug)
 
     return render(request, 'update.html', {'form': form, 'cocktail': cocktail})
