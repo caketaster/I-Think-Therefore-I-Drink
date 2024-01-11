@@ -104,6 +104,10 @@ a {
     border-color: rgb(62, 255, 120);
 }
 
+#search-addon {
+    background: none;
+}
+
 
 /* Card styling */
 #whiskey {

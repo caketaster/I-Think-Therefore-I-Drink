@@ -66,7 +66,7 @@ def CreatePost(request):
             recipe.ingredients = field_form.cleaned_data['ingredients']
             recipe.instructions = field_form.cleaned_data['instructions']
             recipe.author = User.objects.get(id = request.user.id)
-            recipe.steps = len(recipe.instructions.split(','))
+            # recipe.steps = len(recipe.instructions.split(','))
             recipe.save()
             messages.add_message(request, messages.INFO, 'Cocktail submitted to the Admin for approval')
             return redirect('home')
@@ -145,8 +145,7 @@ def UpdatePost(request, slug):
         description = request.POST['description']
         ingredients = request.POST['ingredients']
         instructions = request.POST['instructions']
-        steps = len(instructions.split(','))
-        Post.objects.update_or_create(slug=slug, defaults={'description': description, 'ingredients': ingredients, 'instructions': instructions, 'steps': steps})
+        Post.objects.update_or_create(slug=slug, defaults={'description': description, 'ingredients': ingredients, 'instructions': instructions})
         messages.add_message(request, messages.INFO, 'Update successfully completed')
         return redirect('home')
     

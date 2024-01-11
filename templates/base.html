@@ -62,38 +62,37 @@
             </div>
             <div class="row">
                 <div class="px-3 py-2 border-bottom mb-3">
-                    <div class="d-flex flex-row align-items-center px-5 mx-2">
+                    <div class="d-flex flex-column flex-md-row align-items-center px-5 mx-2">
                         <!-- search bar -->
-                        <div class="col-sm-10 col-md-6 col-lg-4 ">
-                            <div class="search me-auto d-none d-md-block input-group">
-                                <form method="POST" action="{% url 'search' %}" role="search">
-                                    {% csrf_token %}
-                                    <div class="form-outline">
-
-                                        <input type="search" name="searchstring" id="form1" class="form-control"
-                                            placeholder="Search by ingredient..." aria-label="Search">
-
-                                    </div>
-                                    <button type="submit" class="btn btn-light fas fa-search"></button>
-
-                                </form>
-                            </div>
+                        <div class="my-3 my-md-0">
+    
+                            <form method="POST" action="{% url 'search' %}" role="search">
+                                {% csrf_token %}
+                                <div class="rounded input-group">
+                                    <input type="search" name="searchstring" id="form1" class="form-control rounded"
+                                           placeholder="Search by ingredient..." aria-label="Search" aria-describedby="search-addon"/>
+    
+                                    <span id="search-addon" class="input-group-text border-0">
+                                        <i class="fas fa-search"></i>
+                                    </span>
+    
+                                </div>
+    
+                            </form>
                         </div>
-
+    
                         <!-- login/logout/signup buttons -->
                         <div class="d-flex ms-auto">
                             {% if user.is_authenticated %}
-                            <a href="{% url 'account_logout' %}" class="btn btn-light text-dark me-2"
-                                role="button">Logout</a>
+                                <a href="{% url 'account_logout' %}" class="btn btn-light text-dark me-2"
+                                   role="button">Logout</a>
                             {% else %}
-                            <a href="{% url 'account_login' %}" type="button" class="btn btn-light text-dark me-2"
-                                role="button">Login</a>
-                            <a href="{% url 'account_signup' %}" type="button" class="btn btn-light text-nowrap"
-                                role="button">Sign-up</a>
+                                <a href="{% url 'account_login' %}" type="button" class="btn btn-light text-dark me-2"
+                                   role="button">Login</a>
+                                <a href="{% url 'account_signup' %}" type="button" class="btn btn-dark text-nowrap"
+                                   role="button">Sign-up</a>
                             {% endif %}
-                            <!-- if user.is_superuser - admin tools button -->
-                            
-
+    
                         </div>
                     </div>
                 </div>
