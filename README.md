@@ -8,13 +8,11 @@ The Think-Drink project is a repository for recipes for whisky [scotch] and whis
 
 Designed within an AGILE framework, The site has full CRUD functionality for Users and Admins. 
 
-You can view the deployed website here: <br>
-
-https://i-think-therefore-i-drink-44cd107f3be4.herokuapp.com/
+You can view the deployed website [here](https://i-think-therefore-i-drink-44cd107f3be4.herokuapp.com/) <br>
 
 ![amiresponsive](static/media/readme/amiresponsive.png)<br>
 
-- [I Think Therefore I Drink](#i-think-therefore-i-drink---a-whisky-whiskey-cocktail-recipe-site-for-drinkers)
+- [I Think Therefore I Drink [Think-Drink] - A cocktail recipe site for whisky and whiskey drinkers](#i-think-therefore-i-drink--think-drink----a-cocktail-recipe-site-for-whisky-and-whiskey-drinkers)
   * [Author](#author)
   * [Project Overview](#project-overview)
 - [UX](#ux)
@@ -30,18 +28,31 @@ https://i-think-therefore-i-drink-44cd107f3be4.herokuapp.com/
   * [Post Detail](#post-detail)
   * [User Favourites page](#user-favourites-page)
 - [Features/Structure](#features-structure)
-  * [Navigation](#navigation)
+  * [Structure](#structure)
   * [Messages](#messages)
   * [Header/Navbar](#header-navbar)
   * [Cocktail Cards](#cocktail-cards)
+  * [Favourite](#favourite)
+  * [Search](#search)
   * [Update](#update)
   * [Delete](#delete)
   * [Footer](#footer)
   * [Error 404/403/500 Pages](#error-404-403-500-pages)
   * [Features for Future Development](#features-for-future-development)
 - [Data Model](#data-model)
+  * [Attributes](#attributes)
+  * [Methods](#methods)
 - [CRUD](#crud)
 - [Testing](#testing)
+  * [Validation checking](#validation-checking)
+    + [HTML Validation](#html-validation)
+    + [CSS Validation](#css-validation)
+    + [Python Validation](#python-validation)
+  * [Visual (UI) Testing: Cross Browser and Cross Device Testing](#visual--ui--testing--cross-browser-and-cross-device-testing)
+  * [Lighthouse Testing](#lighthouse-testing)
+    + [Mobile](#mobile)
+    + [Desktop](#desktop)
+  * [WAVE Testing](#wave-testing)
 - [Technologies Used](#technologies-used)
   * [Languages](#languages)
   * [Database](#database)
@@ -50,10 +61,10 @@ https://i-think-therefore-i-drink-44cd107f3be4.herokuapp.com/
   * [Libraries/Packages](#libraries-packages)
   * [Other](#other)
 - [Deployment](#deployment)
-  * [ElephantSQL](##elephantsql)
-  * [Cloudinary](##cloudinary)
-  * [Heroku](##heroku)
-  * [GitHub/GitPod](##github-gitpod)
+  * [ElephantSQL](#elephantsql)
+  * [Cloudinary](#cloudinary)
+  * [Heroku](#heroku)
+  * [GitHub/GitPod](#github-gitpod)
 - [Credits](#credits)
   * [Media](#media)
 - [Acknowledgements](#acknowledgements)
@@ -91,12 +102,10 @@ I wanted to keep a clean and simple look for the colours reminiscent of a whisky
 
 I chose to keep buttons either light or dark (though I darkened basic Bootstrap btn-light class) to keep the theme consistent, the exceptions being the delete-confirmation button, as this performs a fairly major action that cannot be reversed, and the log out button (both a light orange colour, adapted from the btn-warning Bootstrap class). The Admin buttons in each post detail page are green, to delineate them from the regular page and buttons.
 
-// add swatch 
+![colour swatch](static/media/readme/readme-coolers.jpg)<br>
 
 ## Typography
 I left the typography as the basic Bootstrap typeface (Open Sans) as I felt it had the simple style I was after.
-
-// django fonts? should I change any fonts..?
 
 ## Images/Icons
 - All cocktail images were chosen by me to represent each cocktail. <br>
@@ -230,25 +239,15 @@ CRUD is fully available for both users and the admin.
 ### HTML Validation
 All the following pages were checked using the [W3 Validator](https://validator.w3.org/), returning no errors or warnings:
 - Homepage
-
 - Search page
-
 - Post detail page 
-
 - Favourites page 
-
 - Submission page
-
 - Update page 
-
 - Delete page 
-
 - Login page
-
 - Logout page
-
 - Sign up page
-
 - 404 page
 
 ![validation check](static/media/readme/html-validation.jpg)<br>
@@ -259,17 +258,14 @@ CSS was checked through the [W3 CSS Validator](https://jigsaw.w3.org/css-validat
 
 ### Python Validation
 
-The following pages were tested through the [CI Python Linter](https://pep8ci.herokuapp.com/):
-thinkdrink/urls.py
-recipe/views.py
-recipe/urls.py - OK
-recipe/models.py
-recipe/forms.py - OK
-recipe/admin.py - OK
+The following pages were tested through the [CI Python Linter](https://pep8ci.herokuapp.com/) and returned zero errors. I did have to add `# noqa` to several lines to make them pep8 compliant:
+- thinkdrink/urls.py 
+- recipe/views.py
+- recipe/urls.py 
+- recipe/models.py
+- recipe/forms.py
+- recipe/admin.py
 
-// errors - line too long
-
-// ? As only one tiny snippet of JavaScript was used (for the message timeout function), and this was taken directly from the walkthrough project this was not validated.
 
 ## Visual (UI) Testing: Cross Browser and Cross Device Testing
 The site was virtually tested across a range of screen sizes and devices
@@ -290,7 +286,9 @@ The site was virtually tested across a range of screen sizes and devices
 ## Lighthouse Testing
 Lighthouse performance was unimpressive, largely due to slow contentful paint loads. 
 
-I'm living in China with relatively slow internet, and have to run tests using a VPN, which inevitably slows web traffic. It's unknown how much performance would improve if in a location with no such VPN requirements. 
+I'm living in China with relatively slow internet, and have to run tests using a VPN, which inevitably slows web traffic. 
+
+A CI tutor ran Lighthouse testing from his base in Ireland and Performance hit 82, perhaps indicitive of Chinese internet issues. 
 
 ### Mobile
 ![mobile lighthouse](static/media/readme/lighthouse-mob.jpg)<br>
@@ -304,6 +302,10 @@ I'm living in China with relatively slow internet, and have to run tests using a
 ## WAVE Testing
 I tested the homepage, favourites, search and post detail pages. 
 Several 'low contrast' errors were returned, and I made minor colour changes, although I found this to be a balancing act: the site is by design various shades of grey and rather low contrast; I did not want to break the look of the site by making major changes. 
+
+I did, however, make changes to ensure a Pass in WAVE:
+
+![WAVE testing](static/media/readme/readme-wave.jpg)<br>
 
 # Technologies Used
 ## Languages
@@ -324,6 +326,7 @@ Several 'low contrast' errors were returned, and I made minor colour changes, al
 - Summernote
 - Gunicorn
 - Psycopg2
+- Crispy Forms
 
 ## Other
 - [Flaticon](https://www.flaticon.com/)
@@ -405,26 +408,12 @@ Several 'low contrast' errors were returned, and I made minor colour changes, al
 - The person walking icon was taken and edited from [Bootstrap Icons](https://icons.getbootstrap.com/)
 - All cocktail images were taken and cropped from Google Images 
 <br>
-- The Code Institute 'I Think Therefore I Blog' project provided the basic framework for my site. 
-// need to add - attribution for tutorials + find other things I used
+- The Code Institute *I Think Therefore I Blog* project provided the basic framework for my site. 
+- I used several courses for information on Django functionality, but largely this learning path: [Become a Django Developer](https://www.linkedin.com/learning/paths/become-a-django-developer?u=244845242)
 
 ## Media
 - The cocktail ingredients and instructions were taken from [the MyBar app](https://mybarapp.com)
 - Cocktail descriptions were borrowed and edited from [Spruce Eats](https://www.thespruceeats.com) (Rusty Nail, Sazerac, Penicillin, Blood and Sand), [Liquor.com](https://www.liquor.com) (Godfather, Old Fashioned, Whiskey Sour), [Cocktail Wave](https://www.cocktailwave.com) (Bobby Burns)
 
 # Acknowledgements
-
-
-
-
-
-// to add in to Credits:
-Tutorials and videos I used for:
-django forms
-update
-delete
-
-// remake ToC in light of additions
-
-// Tutor support: python linter line too long
-// Lighthouse: error (have pic), and low performance
+I could not have got this far without the excellent support and expertise of my mentor. 

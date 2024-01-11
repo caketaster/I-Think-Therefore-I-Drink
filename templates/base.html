@@ -65,34 +65,35 @@
                     <div class="d-flex flex-column flex-md-row align-items-center px-5 mx-2">
                         <!-- search bar -->
                         <div class="my-3 my-md-0">
-    
+
                             <form method="POST" action="{% url 'search' %}" role="search">
                                 {% csrf_token %}
                                 <div class="rounded input-group">
                                     <input type="search" name="searchstring" id="form1" class="form-control rounded"
-                                           placeholder="Search by ingredient..." aria-label="Search" aria-describedby="search-addon">
-    
+                                        placeholder="Search by ingredient..." aria-label="Search"
+                                        aria-describedby="search-addon">
+
                                     <span id="search-addon" class="input-group-text border-0">
                                         <i class="fas fa-search"></i>
                                     </span>
-    
+
                                 </div>
-    
+
                             </form>
                         </div>
-    
+
                         <!-- login/logout/signup buttons -->
                         <div class="d-flex ms-auto">
                             {% if user.is_authenticated %}
-                                <a href="{% url 'account_logout' %}" class="btn btn-light text-dark me-2"
-                                   role="button">Logout</a>
+                            <a href="{% url 'account_logout' %}" class="btn btn-light text-dark me-2"
+                                role="button">Logout</a>
                             {% else %}
-                                <a href="{% url 'account_login' %}" class="btn btn-light text-dark me-2"
-                                   role="button">Login</a>
-                                <a href="{% url 'account_signup' %}" class="btn btn-dark text-nowrap"
-                                   role="button">Sign-up</a>
+                            <a href="{% url 'account_login' %}" class="btn btn-light text-dark me-2"
+                                role="button">Login</a>
+                            <a href="{% url 'account_signup' %}" class="btn btn-dark text-nowrap"
+                                role="button">Sign-up</a>
                             {% endif %}
-    
+
                         </div>
                     </div>
                 </div>
@@ -141,7 +142,7 @@
                         <img src="{% static 'media/github.png' %}" alt="github icon" height="25">
                     </a>
                 </li>
-                
+
                 <li class="ms-3">
                     <a class="text-body-secondary" href="https://www.linkedin.com/in/benjamin-norman-7619261a"
                         target="_blank">
@@ -155,11 +156,11 @@
     </footer>
     <script>
         try {
-            setTimeout(function () {
-                let messages = document.getElementById("msg");
-                let alert = new bootstrap.Alert(messages);
-                alert.close();
-            }, 3000);
+            var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+            var toastList = toastElList.map(function (toastEl) {
+                return new bootstrap.Toast(toastEl)
+            });
+            toastList.forEach(toast => toast.show());
         } catch (e) {
             //do nothing, all is good if issues with messages
         }

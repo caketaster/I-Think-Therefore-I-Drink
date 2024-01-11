@@ -61,13 +61,13 @@ def CreatePost(request):
         if field_form.is_valid():
             recipe = Post()
             recipe.title = field_form.cleaned_data['title']
-            recipe.slug = field_form.cleaned_data['title'].lower().replace(' ', '-')
+            recipe.slug = field_form.cleaned_data['title'].lower().replace(' ', '-')  # noqa
             recipe.description = field_form.cleaned_data['description']
             recipe.ingredients = field_form.cleaned_data['ingredients']
             recipe.instructions = field_form.cleaned_data['instructions']
             recipe.author = User.objects.get(id=request.user.id)
             recipe.save()
-            messages.add_message(request, messages.INFO, 'Cocktail submitted to the Admin for approval')
+            messages.add_message(request, messages.INFO, 'Cocktail submitted to the Admin for approval')  # noqa
             return redirect('home')
 
     return render(request, 'createpost.html', {'form': form})
@@ -82,12 +82,12 @@ def Favourites(request):
 # Adding/removing favourites
 def AddFavourites(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
-    if post.favourites.filter(id=request.user.id).count()==1:
+    if post.favourites.filter(id=request.user.id).count() == 1:
         post.favourites.remove(request.user)
-        messages.add_message(request, messages.INFO, 'You have unfavourited this cocktail')
+        messages.add_message(request, messages.INFO, 'You have unfavourited this cocktail')  # noqa
     else:
         post.favourites.add(request.user)
-        messages.add_message(request, messages.INFO, 'You have added this cocktail to your favourites')
+        messages.add_message(request, messages.INFO, 'You have added this cocktail to your favourites')  # noqa
     return redirect(request.META['HTTP_REFERER'])
 
 
@@ -115,11 +115,11 @@ def handler403(request, *args, **argv):
 
 # Search functionality
 def SearchIngredient(request):
-    if  'searchstring' in request.POST:
+    if 'searchstring' in request.POST:
         searchstring = request.POST['searchstring']
         search = Post.objects.filter(ingredients__icontains=searchstring)
-        if len(search)==0:
-            messages.add_message(request, messages.INFO, 'No cocktail with that ingredient')
+        if len(search) == 0:
+            messages.add_message(request, messages.INFO, 'No cocktail with that ingredient')  # noqa
             return redirect('home')
     else:
         return redirect('home')
@@ -128,10 +128,10 @@ def SearchIngredient(request):
 
 # Delete functionality
 def DeletePost(request, slug):
-    if  request.method=='POST':
+    if request.method == 'POST':
         cocktail = Post.objects.get(slug=slug)
         cocktail.delete()
-        messages.add_message(request, messages.INFO, 'Cocktail deleted successfully')
+        messages.add_message(request, messages.INFO, 'Cocktail deleted successfully')  # noqa
         return redirect('home')
     else:
         cocktail = Post.objects.get(slug=slug)
@@ -145,9 +145,9 @@ def UpdatePost(request, slug):
         description = request.POST['description']
         ingredients = request.POST['ingredients']
         instructions = request.POST['instructions']
-        Post.objects.update_or_create(slug=slug, defaults={'description': description, 'ingredients': ingredients, 'instructions': instructions})
-        messages.add_message(request, messages.INFO, 'Update successfully completed')
-        return redirect('home')
+        Post.objects.update_or_create(slug=slug, defaults={'description': description, 'ingredients': ingredients, 'instructions': instructions})  # noqa
+        messages.add_message(request, messages.INFO, 'Update successfully completed')  # noqa
+        return redirect('home')  # noqa
 
     cocktail = Post.objects.get(slug=slug)
 

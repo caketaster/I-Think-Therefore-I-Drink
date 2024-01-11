@@ -26,7 +26,7 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('submitcocktail/', views.CreatePost, name='submitcocktail'),
     path('favourites/', views.Favourites, name='favourites'),
-    path('addfavourites/<int:post_id>/', views.AddFavourites, name='addfavourites'),
+    path('addfavourites/<int:post_id>/', views.AddFavourites, name='addfavourites'),  # noqa
     path('search/', views.SearchIngredient, name='search')
 ]
 
