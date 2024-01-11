@@ -1,27 +1,37 @@
 {% extends "base.html" %}
 
 {% block content %}
+{% load crispy_forms_tags %}
 
 <!-- Cocktail submission page (from 'Submit a cocktail' link) -->
 <div class="container">
     <div class="row">
-        <div class="col-md-6 offset-md-3 my-3 py-2 text-container text-center">
+        <div class="col-md-6 offset-md-3 my-3 py-3 text-container text-center">
 
             <h2>Submit cocktail</h2>
 
             <form method="post">
 
                 {% csrf_token %}
-
-                {{ form.as_p }}
-
-                <button class="btn btn-dark" type="submit">Submit cocktail</button>
-
+                {{ form | crispy }}
+                
+                <button class="btn btn-dark btn-md mt-2 type='submit'">Submit cocktail</button>
             </form>
+            
 
         </div>
     </div>
 </div>
 
+<!-- 
+<form method="post">
+
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button class="btn btn-dark" type="submit">Submit cocktail</button>
+
+</form> -->
 
 {% endblock %}

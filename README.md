@@ -176,12 +176,38 @@ Currently when a user updates one of his/her cocktail recipes it is not sent to 
 Other useful future additions could be rating system for cocktails where users could rate cocktails on a 1-5 star scale, and an option to list cocktails in order of rating, highest to lowest. 
 
 # Data Model
-// Erk! Have not made anything for this yet. 
+There is one custom data structure associated with *I Think, Therefore I Drink*: the post model. The post model is used to store the data for each cocktail recipe.
+
+
+## Attributes
+
+| DB Field       | Data Type       | Purpose                                                                                       | Model Validation | Form Validation             |
+|----------------|-----------------|-----------------------------------------------------------------------------------------------|------------------|-----------------------------|
+| title          | CharField       | Title of Drink                                                                                | unique           | unique on save              |
+| slug           | SlugField       | Ease of knowing what object is being displayed for update/delete views in navigation          | unqiue           | N/A                         |
+| author         | ForeignKey      | Track who created the drink recipe                                                            | required on save | auto added on create        |
+| created_on     | DateTimeField   | Help sort drinks by most recent to oldest                                                     |                  | auto added on create/       |
+| updated_on     | DateTimeField   | Help sort drinks by most recent to oldest                                                     |                  | auto added on create/update |
+| featured_image | CloudinaryField | Image to represent drink                                                                      | optional         |                             |
+| description    | TextField       | Brief Description of Drink for List Page                                                      | optional         |                             |
+| status         | IntegerField    | Limit what is displayed on live site<br>Choices of tuples currently: 0 = Draft, 1 = Published | required         | default = Draft             |
+| favourites     | ManyToManyField | Allow Users to flag their favorite Drinks which displays on Favorites list page               | N/A              | N/A                         |
+| ingredients    | TextField       | User inputted ingredients comma delineated                                                    | required         |                             |
+| instructions   | TextFeiLD       | User inputted steps to create drink, comma delineated                                         | required         | N/A                         |
+
+## Methods
+| Method               | isProperty | Purpose                                                                            |
+|----------------------|------------|------------------------------------------------------------------------------------|
+| __str__              | No         | returns the title of drink                                                         |
+| number_of_favourites | No         | returns count of Users that have flagged the drink as a favourite                  |
+| steps                | Yes        | Calculate number of steps to give users a quick idea of how complicated a drink is | 
+
+![data model](static/media/readme/data-model.png)<br>
 
 # CRUD
 CRUD is fully available for both users and the admin.
 
-- For users, they can **Create** cocktail recipes, **Read** the posts on the site, **Update** recipes they've contributed to the site and **Delete** their submissions from the site.
+- For users, they can **Create** cocktail recipes (n.b. the admin must approve the submission, and add a relevant image to ensure a consistent site visual style), **Read** the posts on the homepage and in their Favourites page, **Update** recipes they've contributed to the site via the button in the post detail page for recipes they've had submitted, and **Delete** their submissions from the site via the button on the post detail page.
 
 - Admin users can also **Create** draft posts to be edited and published later, **Read** user submissions prior to approval, **Update** the posts of any user through the admin panel, and likewise **Delete** any post they see fit. There are also buttons on each post detail page providing direct links to the admin panel for updates and deletions for added ease of use.
 

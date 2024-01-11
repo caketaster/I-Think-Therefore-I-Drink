@@ -4,6 +4,7 @@
 
 {% if user == cocktail.author %}
 
+
 <div class="container">
     <div class="row">
         <div class="col-md-6 offset-md-3 my-3 py-3 text-container text-center">
@@ -17,11 +18,11 @@
                 <p><label for="title"><h5>Title:</h5></label>
                 <input type="text" id="title" name="title" value="{{ cocktail.title }}" disabled></p>
                 <p><label for="description"><h5>Description:</h5></label>
-                <textarea rows="3" id="description" name="description">{{ cocktail.description }}></textarea></p>
+                <textarea cols="35" rows="3" id="description" name="description">{{ cocktail.description }}></textarea></p>
                 <p><label for="ingredients"><h5>Ingredients (please add a comma after each ingredient):</h5></label>
-                <textarea rows="3" id="ingredients" name="ingredients" >{{ cocktail.ingredients }}></textarea></p>
+                <textarea cols="35" rows="3" id="ingredients" name="ingredients" >{{ cocktail.ingredients }}></textarea></p>
                 <p><label for="instructions"><h5>Instructions (please add a comma after each step):</h5></label>
-                <textarea rows="3" id="instructions" name="instructions" >{{ cocktail.instructions }}</textarea></p><br>
+                <textarea cols="35" rows="3" id="instructions" name="instructions" >{{ cocktail.instructions }}</textarea></p><br>
 
                 <button class="btn btn-dark" type="submit">Submit changes</button><br>
 
