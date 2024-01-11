@@ -19,10 +19,10 @@
                             <div class="image-container">
                                 {% if "placeholder" in result.featured_image.url %}
                                 <div class="img-wrap"><img class="card-img-top"
-                                        src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.xYgnlEJ1sM5_6qk9QQMw8gHaE8%26pid%3DApi&f=1&ipt=ded1d03eefc8ac98fcb51a6f8f85b89c23017ef3de360f619d2a724d92f12818&ipo=images">
+                                        src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.xYgnlEJ1sM5_6qk9QQMw8gHaE8%26pid%3DApi&f=1&ipt=ded1d03eefc8ac98fcb51a6f8f85b89c23017ef3de360f619d2a724d92f12818&ipo=images" alt="placeholder image">
                                 </div>
                                 {% else %}
-                                <div class="img-wrap"><img class="card-img-top" src=" {{ result.featured_image.url }}"></div>
+                                <div class="img-wrap"><img class="card-img-top" src=" {{ result.featured_image.url }}" alt="featured image"></div>
                                 {% endif %}
                                     <div class="image-flash">
                                         <p class="author">Author: {{ result.author }}</p>

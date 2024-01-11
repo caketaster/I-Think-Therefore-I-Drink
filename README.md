@@ -12,7 +12,7 @@ You can view the deployed website here: <br>
 
 https://i-think-therefore-i-drink-44cd107f3be4.herokuapp.com/
 
-// https://ui.dev/amiresponsive <- make a sample image
+![amiresponsive](static/media/readme/amiresponsive.png)<br>
 
 - [I Think Therefore I Drink](#i-think-therefore-i-drink---a-whisky-whiskey-cocktail-recipe-site-for-drinkers)
   * [Author](#author)
