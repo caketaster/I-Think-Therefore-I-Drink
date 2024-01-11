@@ -89,7 +89,7 @@ For Site User:
 ## Colours
 I wanted to keep a clean and simple look for the colours reminiscent of a whisky bar, so stuck mainly with shades between light grey and very dark grey, with flashes of colour in the site icon [orange] and card backgrounds [light-red, light-green]. The background has a linear colour-shift from dark-grey to light-grey and back again, remininscent of burnished metal. The cocktail images also add appropriate colour to the site.
 
-I chose to keep buttons either light or dark (though I darkened basic Bootstrap btn-light class) to keep the theme consistent, the exceptions being the delete-confirmation button, as this performs a fairly major action that cannot be reversed, and the log out button (both a light orange colour, adapted from the btn-warning Bootstrap class).
+I chose to keep buttons either light or dark (though I darkened basic Bootstrap btn-light class) to keep the theme consistent, the exceptions being the delete-confirmation button, as this performs a fairly major action that cannot be reversed, and the log out button (both a light orange colour, adapted from the btn-warning Bootstrap class). The Admin buttons in each post detail page are green, to delineate them from the regular page and buttons.
 
 // add swatch 
 
@@ -183,7 +183,7 @@ CRUD is fully available for both users and the admin.
 
 - For users, they can **Create** cocktail recipes, **Read** the posts on the site, **Update** recipes they've contributed to the site and **Delete** their submissions from the site.
 
-- Admin users can also **Create** draft posts to be edited and published later, **Read** user submissions prior to approval, **Update** the posts of any user through the admin panel, and likewise **Delete** any post they see fit.
+- Admin users can also **Create** draft posts to be edited and published later, **Read** user submissions prior to approval, **Update** the posts of any user through the admin panel, and likewise **Delete** any post they see fit. There are also buttons on each post detail page providing direct links to the admin panel for updates and deletions for added ease of use.
 
 # Testing
 // LOADS to do here

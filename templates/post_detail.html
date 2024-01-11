@@ -6,7 +6,17 @@
             <div class="col-md-6 masthead-text">
                 <h1 class="post-title">{{ post.title }}</h1>
                 <p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
+                {% if user.is_superuser %}
+                <span class="btn-padding">
+                    <a href="{% url 'admin:recipe_post_change' post.pk %}" type="button"
+                        class="btn btn-secondary text-dark me-2" role="button">Admin Update</a>
+                    <a href="{% url 'delete' slug=post.slug %}" type="button" class="btn btn-secondary text-dark me-2"
+                        role="button">Delete
+                    </a>
+                </span>
+                {% endif %}
             </div>
+
             <div class="d-none d-md-block col-md-6 masthead-image">
                 {% if "placeholder" in post.featured_image.url %}
                 <div class="img-wrap-lg">

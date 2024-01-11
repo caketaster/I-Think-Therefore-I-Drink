@@ -11,7 +11,7 @@ class Post(models.Model):
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="recipe_posts")
     updated_on = models.DateTimeField(auto_now=True)
-    content = models.TextField()
+    # content = models.TextField() <-- can delete and makemigrations/migrate
     featured_image = CloudinaryField('image', default='placeholder')
     description = models.TextField(blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
@@ -19,7 +19,6 @@ class Post(models.Model):
     favourites = models.ManyToManyField(User, related_name='recipe_favourites', blank=True)
     ingredients = models.TextField()
     instructions = models.TextField()
-    steps = models.IntegerField()
 
     class Meta:
         # in descending order by created on
@@ -31,4 +30,6 @@ class Post(models.Model):
     def number_of_favourites(self):
         return self.favourites.count()
 
-
+    @property
+    def steps(self):
+        return len(self.instructions.split(','))

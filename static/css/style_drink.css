@@ -99,6 +99,11 @@ a {
     padding-bottom: 80px;
 }
 
+.btn-secondary {
+    background-color: rgb(131, 255, 122);
+    border-color: rgb(62, 255, 120);
+}
+
 
 /* Card styling */
 #whiskey {
