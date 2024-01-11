@@ -326,6 +326,7 @@ I performed Manual Testing only for this project due to time constraints.
 | As a Site User I can register an account so that I can favourite recipes                                                                              | PASS   |
 | As a Site User / Admin I can view the number of favourites on each recipe so that I can see which is the most popular                                 | PASS   |
 | As a Site User I can click on a recipe so that I can read the full text                                                                               | PASS   |
+| As a Site User I can view a list of recipes so that I can select one to read                                                                          | PASS   |
 
 # Technologies Used
 ## Languages
