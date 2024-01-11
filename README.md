@@ -188,15 +188,16 @@ Error pages for 404, 403 and 500 are included. <br>
 ## Features for Future Development
 There are two main features I'd like to include in future: live search and approval for updates.
 
-To add a search function that updates as you type would involve the addition of some JavaScript to the search functionality. I did not include this for lack of time.
+- To add a search function that updates as you type would involve the addition of some JavaScript to the search functionality. I did not include this for lack of time.
 
-Currently when a user updates one of his/her cocktail recipes it is not sent to the Admin for approval. This is a feature I would like to add to prevent abuse of the site, though could not find a way to include in in my current site iteration.
+- Currently when a user updates one of his/her cocktail recipes it is not sent to the Admin for approval. This is a feature I would like to add to prevent abuse of the site, though could not find a way to include in in my current site iteration.
 
-Other useful future additions could be rating system for cocktails where users could rate cocktails on a 1-5 star scale, and an option to list cocktails in order of rating, highest to lowest. 
+Other useful future additions could include:
+- Rating system for cocktails where users could rate cocktails on a 1-5 star scale, and an option to list cocktails in order of rating, highest to lowest. 
 
-Card text is clipped to make sure all cards are the same size. Some text styling (fade-out/ellipsis on clip) would make the site slightly more attractive. 
+- Card text is clipped to make sure all cards are the same size. Some text styling (fade-out/ellipsis on clip) would make the site slightly more attractive. 
 
-When copy-pasting in Descriptions for cocktails, the formatting is not stripped from the text, causing display issues. Stripping the text of all formatting should be added in future.
+- When copy-pasting in Descriptions for cocktails, the formatting is not stripped from the text, causing display issues. Stripping the text of all formatting should be added in future.
 
 # Data Model
 There is one custom data structure associated with *I Think, Therefore I Drink*: the post model. The post model is used to store the data for each cocktail recipe.
@@ -307,6 +308,25 @@ I did, however, make changes to ensure a Pass in WAVE:
 
 ![WAVE testing](static/media/readme/readme-wave.jpg)<br>
 
+## Testing User Stories
+I performed Manual Testing only for this project due to time constraints.
+
+|                                                                       USER STORY                                                                      | RESULT |
+|:-----------------------------------------------------------------------------------------------------------------------------------------------------:|:------:|
+| As a Site User I can see how many steps are required to make each cocktail so that I can assess the relative difficulty level of making each cocktail | PASS   |
+| As a Site User I can delete any of my own cocktail submissions so that I can remove any submissions I no longer want to share                         | PASS   |
+| As a Site User I can apply to update the cocktails I've had approved so that I have control over what I have submitted                                | PASS   |
+| As a Site Admin I can approve submitted cocktail recipes so that the site can grow with user input                                                    | PASS   |
+| As a Site User I can filter cocktails by whisky/whiskey so that I can find a cocktail that suits me                                                   | PASS   |
+| As a Site User I can search cocktails by ingredient so that I can find a cocktail I'd like to drink                                                   | PASS   |
+| As a Site User I can submit cocktail recipes so that the site content can be improved                                                                 | PASS   |
+| As a Site Admin I can create draft posts so that I can finish writing the content later                                                               | PASS   |
+| As a Site Admin I can create, read, update and delete recipes so that I can manage my site content                                                    | PASS   |
+| As a Site User I can favourite and unfavourite a recipe so that I can interact with the content                                                       | PASS   |
+| As a Site User I can register an account so that I can favourite recipes                                                                              | PASS   |
+| As a Site User / Admin I can view the number of favourites on each recipe so that I can see which is the most popular                                 | PASS   |
+| As a Site User I can click on a recipe so that I can read the full text                                                                               | PASS   |
+
 # Technologies Used
 ## Languages
 - HTML, CSS, Python, and a tiny bit of JavaScript
@@ -370,7 +390,7 @@ I did, however, make changes to ensure a Pass in WAVE:
 11. Generate a SECRET_KEY, add it to Heroku config vars.
 12. Create env.py file and include it in the .gitignore file, and add the SECRET_KEY, Cloudinary URL and ElephantSQL DATABASE_URL to environment variables:
 
-![env.py](static/media/readme/readme-env.jpg)
+![env.py](static/media/readme/readme-env.jpg)<br>
 
 13. Add the below to settings.py:
 
@@ -382,19 +402,19 @@ I did, however, make changes to ensure a Pass in WAVE:
 16. Connect the project to the GitHub repository using personal account login.
 17. Add Cloudinary URL variable to the Heroku config vars:
 
-![staticfiles](static/media/readme/readme-configvars.jpg)
+![staticfiles](static/media/readme/readme-configvars.jpg)<br>
 
 18. Add Cloudinary to installed apps in settings.py, add static/media file settings:
 
-![installed apps](static/media/readme/readme-installed.jpg)
+![installed apps](static/media/readme/readme-installed.jpg)<br>
 (note - some extra installations are shown in this screenshot that are not essential for deployment)
 
-![staticfiles](static/media/readme/readme-staticfiles.jpg)
+![staticfiles](static/media/readme/readme-staticfiles.jpg)<br>
 
 19. Add template directories in settings.py, add Heroku host name to allowed hosts and add directory files:
 
-![staticfiles](static/media/readme/readme-templates.jpg)
-![staticfiles](static/media/readme/readme-allowed.jpg)
+![staticfiles](static/media/readme/readme-templates.jpg)<br>
+![staticfiles](static/media/readme/readme-allowed.jpg)<br>
 
 20. Go to settings in Heroku and perform a manual deployment and check for any issues.
 21. In Heroku settings, enable automatic deployments.
