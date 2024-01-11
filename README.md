@@ -128,17 +128,16 @@ The post detail page did not change much from my initial plan.
 ## User Favourites page
 The user favourites page was always envisioned to be the same as the recipe list page, so I did not create a separate wireframe for it. 
 
-// more wireframes to add..?
 
 # Features/Structure
-## Navigation
-The user initially lands on the homepage. From here they can sign-up, log-in, or simply browse the homepage and each of the post-detail pages. Clicking on the **Favourites** or **Submit a recipe** buttons will redirect to the log-in page. They can also search by ingredient for cocktails.
+## Structure
+The user initially lands on the homepage. From here they can sign-up, log-in, or simply browse the homepage and each of the post-detail pages. For users not logged-in already, clicking on the **Favourites** or **Submit a recipe** buttons will redirect to the log-in page. Users can also search by ingredient for cocktails from the homepage (and every page).
 
 Logged-in users can further favourite and unfavourite cocktails (a message will appear onscreen telling them this has been successful) and submit their own cocktail recipes to be approved by the admin. Favouriting/unfavouriting can be done through the homepage or search results page, and unfavouriting from the user's personal Favourites page.
 
 Once their cocktails appear on the homepage they can edit their own cocktails (but not those of other users) or delete them from the database. 
 
-Users can always return to the homepage by clicking on the icon or banner at the top of the page, the icon in the footer, besides the **Home** button in the navbar (consistent with most modern websites).
+Users can always return to the homepage by clicking on the icon or banner at the top of the page, the icon in the footer, as well as the **Home** button in the navbar (consistent with most modern websites).
 
 To keep the site stylistically sound, the admin is the only one who can approve cocktails submitted, and the admin also chooses the image for each cocktail (a default image will show if no image is specifically chosen by the admin). 
 
@@ -147,24 +146,35 @@ Messages appear upon most actions undertaken, such as signing in or out, favouri
 ![example message](static/media/readme/unfave.jpg)<br>
 
 ## Header/Navbar
-The header contains a clickable icon and banner (both of which redirect to the homepage) plus a **Home** button (likewise), a **Favourites** button which redirects to the user's list of favourited cocktails, and a **Submit a cocktail** button which redirects to a submission form. 
+The header contains a clickable icon and banner (both of which redirect to the homepage) plus a **Home** button (likewise), a **Favourites** button which redirects to the user's list of favourited cocktails, and a **Submit a cocktail** button which redirects to a submission form. <br>
+![navbar](static/media/readme/readme-navbar.jpg)<br>
 
-Beneath the navbar is a **Search by ingredient** search bar, and buttons to log in, log out and/or sign up, depending on the logged-in state of the user.
+Beneath the navbar is a **Search by ingredient** search bar, and buttons to log in, log out and/or sign up, depending on the logged-in state of the user. <br>
+![search and buttons](static/media/readme/readme-search.jpg)<br>
 
 ## Cocktail Cards
-Users can see how many steps [i.e. instructions] are required to make each cocktail, and favourite a cocktail from the relevant card, or click into each card to show the ingredients and instructions.
+Users can see how many steps [i.e. instructions] are required to make each cocktail, and favourite a cocktail from the relevant card, or click into each card to show the ingredients and instructions. Steps needed are also displayed on the card. <br>
+![index card](static/media/readme/readme-card.jpg)<br>
+
+## Favourite
+Logged-in users can favourite any cocktail on the site by clicking the relevant whisky glass icon and view their favourites via the **Favourites** link in the navbar.
+
+## Search
+Users can search by ingredient through the aformentioned search bar. An empty search or ingredient that does not exist will return them to the homepage with a message telling them no such ingredient is in the database. If the ingredient exists they'll be redirected to a page with a list of the cocktails containing that ingredient. 
 
 ## Update
-Users can update any of their published cocktails linked from the Post Detail page, but not those of other users.
+Users can update any of their published cocktails linked from the Post Detail page, but not those of other users. Admins can update all cocktails from the admin panel, and a button in the post detail page also redirects to the specific cocktail they're viewing.
 
 ## Delete
-Users can delete any of their published cocktails linked from the Post Detail page, but not those of other users.
+Users can delete any of their published cocktails linked from the Post Detail page, but not those of other users. Admins can delete any cocktail from the admin panel, and a button in the post detail page also redirects there.
 
 ## Footer
-The footer contains 3 clickable items: the site icon (which redirects to the homepage), plus 2 social media icons which redirect to the author's Linkedin and GitHub pages. 
+The footer contains 3 clickable items: the site icon (which redirects to the homepage), plus 2 social media icons which redirect to the author's Linkedin and GitHub pages. <br>
+![footer](static/media/readme/readme-footer.jpg)<br>
 
 ## Error 404/403/500 Pages
-Error pages for 404, 403 and 500 are included.
+Error pages for 404, 403 and 500 are included. <br>
+![404 page](static/media/readme/readme-404.jpg)<br>
 
 ## Features for Future Development
 There are two main features I'd like to include in future: live search and approval for updates.
@@ -174,6 +184,8 @@ To add a search function that updates as you type would involve the addition of 
 Currently when a user updates one of his/her cocktail recipes it is not sent to the Admin for approval. This is a feature I would like to add to prevent abuse of the site, though could not find a way to include in in my current site iteration.
 
 Other useful future additions could be rating system for cocktails where users could rate cocktails on a 1-5 star scale, and an option to list cocktails in order of rating, highest to lowest. 
+
+Card text is clipped to make sure all cards are the same size. Some text styling (fade-out/ellipsis on clip) would make the site slightly more attractive. 
 
 # Data Model
 There is one custom data structure associated with *I Think, Therefore I Drink*: the post model. The post model is used to store the data for each cocktail recipe.
@@ -309,7 +321,7 @@ CRUD is fully available for both users and the admin.
 - The header/navbar was edited from [Bootstrap documentation examples](https://getbootstrap.com/docs/5.3/examples/headers/)
 - The footer was edited from [Bootstrap documentation examples](https://getbootstrap.com/docs/5.3/examples/footers/)
 - The 'favourite' icon came from [Font Awesome](https://fontawesome.com/icons/whiskey-glass?f=classic&s=solid)
-- The site icon came from [Flat Icon](https://www.flaticon.com/free-icons/)
+- The site icon came from [Flat Icon](https://www.flaticon.com/)
 - The site banner was designed by me on [Canva](https://www.canva.com)
 - The person walking icon was taken and edited from [Bootstrap Icons](https://icons.getbootstrap.com/)
 - All cocktail images were taken and cropped from Google Images 
@@ -319,8 +331,7 @@ CRUD is fully available for both users and the admin.
 
 ## Media
 - The cocktail ingredients and instructions were taken from [the MyBar app](https://mybarapp.com)
-- Cocktail descriptions were borrowed and edited from [Spruce Eats](https://www.thespruceeats.com) (Rusty Nail, Sazerac), [Liquor.com](https://www.liquor.com) (Godfather, Old Fashioned), [Cocktail Wave](https://www.cocktailwave.com) (Bobby Burns)
-// more to add - whiskey sour, penicillin, blood and sand
+- Cocktail descriptions were borrowed and edited from [Spruce Eats](https://www.thespruceeats.com) (Rusty Nail, Sazerac, Penicillin, Blood and Sand), [Liquor.com](https://www.liquor.com) (Godfather, Old Fashioned, Whiskey Sour), [Cocktail Wave](https://www.cocktailwave.com) (Bobby Burns)
 
 # Acknowledgements
 
@@ -333,3 +344,5 @@ Tutorials and videos I used for:
 django forms
 update
 delete
+
+// remake ToC in light of additions

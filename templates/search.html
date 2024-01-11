@@ -29,9 +29,9 @@
                                     </div>
                                 <a href="{% url 'post_detail' result.slug %}" class="result-link">
                                     <h2 class="card-title clink">{{ result.title }}</h2>
-                                    <p class="card-text ctext">{{ result.description | safe }}</p>
+                                    <div class="card-text ctext">{{ result.description | safe }}</div>
                                 </a>
-                                <hr/>
+                                <hr>
                                 <p class="card-text text-muted h6">{{ result.created_on}}
                                     <a href="{% url 'addfavourites' post_id=result.id %}"
                                         class="fa-solid fa-whiskey-glass"></a>

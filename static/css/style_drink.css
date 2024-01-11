@@ -81,6 +81,10 @@ a {
     margin-left: 0.6rem;
 }
 
+.placeholder {
+    width: 100%;
+}
+
 
 /* Button styling */
 .btn-light {
@@ -142,7 +146,6 @@ a {
     white-space-collapse: preserve;
     height: 107px;
     overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 

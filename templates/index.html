@@ -53,7 +53,7 @@
                             </div>
                             <a href="{% url 'post_detail' post.slug %}" class="post-link">
                                 <h2 class="card-title clink">{{ post.title }}</h2>
-                                    <p class="card-text ctext">{{ post.description | safe }}</p>
+                                    <div class="card-text ctext">{{ post.description | safe }}</div>
                             </a>
                             <hr>
                             <p class="card-text text-muted h6">{{ post.created_on}} <i class="bi bi-person-walking walk-card"></i> {{ post.steps }}

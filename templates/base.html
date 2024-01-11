@@ -70,7 +70,7 @@
                                 {% csrf_token %}
                                 <div class="rounded input-group">
                                     <input type="search" name="searchstring" id="form1" class="form-control rounded"
-                                           placeholder="Search by ingredient..." aria-label="Search" aria-describedby="search-addon"/>
+                                           placeholder="Search by ingredient..." aria-label="Search" aria-describedby="search-addon">
     
                                     <span id="search-addon" class="input-group-text border-0">
                                         <i class="fas fa-search"></i>
@@ -87,9 +87,9 @@
                                 <a href="{% url 'account_logout' %}" class="btn btn-light text-dark me-2"
                                    role="button">Logout</a>
                             {% else %}
-                                <a href="{% url 'account_login' %}" type="button" class="btn btn-light text-dark me-2"
+                                <a href="{% url 'account_login' %}" class="btn btn-light text-dark me-2"
                                    role="button">Login</a>
-                                <a href="{% url 'account_signup' %}" type="button" class="btn btn-dark text-nowrap"
+                                <a href="{% url 'account_signup' %}" class="btn btn-dark text-nowrap"
                                    role="button">Sign-up</a>
                             {% endif %}
     
