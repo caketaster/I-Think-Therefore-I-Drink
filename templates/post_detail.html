@@ -8,9 +8,9 @@
                 <p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
                 {% if user.is_superuser %}
                 <span class="btn-padding">
-                    <a href="{% url 'admin:recipe_post_change' post.pk %}" type="button"
+                    <a href="{% url 'admin:recipe_post_change' post.pk %}" 
                         class="btn btn-secondary text-dark me-2" role="button">Admin Update</a>
-                    <a href="{% url 'delete' slug=post.slug %}" type="button" class="btn btn-secondary text-dark me-2"
+                    <a href="{% url 'delete' slug=post.slug %}" class="btn btn-secondary text-dark me-2"
                         role="button">Delete
                     </a>
                 </span>
@@ -25,7 +25,7 @@
                 </div>
                 {% else %}
                 <div class="img-wrap">
-                    <img src="{{ post.featured_image.url }}" alt="featured image" width="100%">
+                    <img src="{{ post.featured_image.url }}" alt="featured image" class="featured-img">
                 </div>
                 {% endif %}
             </div>
@@ -61,9 +61,9 @@
         </div>
     </div>
     {% if user == post.author %}
-    <div class="btn-padding"><a href="{% url 'update' slug=post.slug %}" type="button"
+    <div class="btn-padding"><a href="{% url 'update' slug=post.slug %}"
             class="btn btn-light text-dark me-2" role="button">Propose update</a>
-        <a href="{% url 'delete' slug=post.slug %}" type="button" class="btn btn-light text-dark me-2"
+        <a href="{% url 'delete' slug=post.slug %}" class="btn btn-light text-dark me-2"
             role="button">Delete
             cocktail</a>
     </div>

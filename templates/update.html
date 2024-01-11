@@ -15,16 +15,16 @@
 
                 {% csrf_token %}
 
-                <p><label for="title"><h5>Title:</h5></label>
-                <input type="text" id="title" name="title" value="{{ cocktail.title }}" disabled></p>
-                <p><label for="description"><h5>Description:</h5></label>
-                <textarea cols="35" rows="3" id="description" name="description">{{ cocktail.description }}></textarea></p>
-                <p><label for="ingredients"><h5>Ingredients (please add a comma after each ingredient):</h5></label>
-                <textarea cols="35" rows="3" id="ingredients" name="ingredients" >{{ cocktail.ingredients }}></textarea></p>
-                <p><label for="instructions"><h5>Instructions (please add a comma after each step):</h5></label>
-                <textarea cols="35" rows="3" id="instructions" name="instructions" >{{ cocktail.instructions }}</textarea></p><br>
+                <label for="title"><h5>Title:</h5></label><br>
+                <input type="text" id="title" name="title" value="{{ cocktail.title }}" disabled><br><br>
+                <label for="description"><h5>Description:</h5></label><br>
+                <textarea cols="35" rows="3" id="description" name="description">{{ cocktail.description }}></textarea><br><br>
+                <label for="ingredients"><h5>Ingredients (please add a comma after each ingredient):</h5></label><br>
+                <textarea cols="35" rows="3" id="ingredients" name="ingredients" >{{ cocktail.ingredients }}></textarea><br><br>
+                <label for="instructions"><h5>Instructions (please add a comma after each step):</h5></label><br>
+                <textarea cols="35" rows="3" id="instructions" name="instructions" >{{ cocktail.instructions }}</textarea><br>
 
-                <button class="btn btn-dark" type="submit">Submit changes</button><br>
+                <button class="btn btn-dark my-3" type="submit">Submit changes</button><br>
 
             </form>
 

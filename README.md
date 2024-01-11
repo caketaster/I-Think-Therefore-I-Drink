@@ -224,7 +224,31 @@ CRUD is fully available for both users and the admin.
 - Admin users can also **Create** draft posts to be edited and published later, **Read** user submissions prior to approval, **Update** the posts of any user through the admin panel, and likewise **Delete** any post they see fit. There are also buttons on each post detail page providing direct links to the admin panel for updates and deletions for added ease of use.
 
 # Testing
-// LOADS to do here
+## Validation checking
+All the following pages were checked, returning no errors or warnings:
+- Homepage
+
+- Search page
+
+- Post detail page 
+
+- Favourites page 
+
+- Submission page
+
+- Update page 
+
+- Delete page 
+
+- Login page
+
+- Logout page
+
+- Sign up page
+
+- 404 page
+
+![validation check](static/media/readme/html-validation.jpg)<br>
 
 # Technologies Used
 ## Languages

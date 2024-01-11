@@ -10,13 +10,13 @@
             <h2 class="center-txt mb-3">Are you sure you want to delete {{ cocktail.title }}?</h2>
 
             <div class="center-txt mb-3">
-                <form action="" method="post" class="my-2">
+                <form method="post" class="my-2">
                     {% csrf_token %}
                     <input type="submit" value="Confirm" class="btn btn-warning me-2 delete-btn"
-                        role="button"></input>
+                        >
                 </form>
-                <div class="inline-input"><a href="{% url 'post_detail' slug=cocktail.slug %}" type="button" class="btn btn-light me-2"
-                    role="button">Go back</a></div>
+                <div class="inline-input"><a href="{% url 'post_detail' slug=cocktail.slug %}" class="btn btn-light me-2"
+                    >Go back</a></div>
             </div>
         </div>
     </div>
