@@ -155,15 +155,23 @@
 
     </footer>
     <script>
-        try {
-            var toastElList = [].slice.call(document.querySelectorAll('.toast'))
-            var toastList = toastElList.map(function (toastEl) {
-                return new bootstrap.Toast(toastEl)
-            });
-            toastList.forEach(toast => toast.show());
-        } catch (e) {
-            //do nothing, all is good if issues with messages
-        }
+        setTimeout(() => {
+            const messages = document.getElementById('msg');
+            if (messages) {
+                const alert = new bootstrap.Alert(messages);
+                alert.close();
+            }
+        }, 3000);
+
+        // try {
+        //     var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+        //     var toastList = toastElList.map(function (toastEl) {
+        //         return new bootstrap.Toast(toastEl)
+        //     });
+        //     toastList.forEach(toast => toast.show());
+        // } catch (e) {
+        //     //do nothing, all is good if issues with messages
+        // }
     </script>
 </body>
 
