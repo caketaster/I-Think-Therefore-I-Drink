@@ -427,10 +427,9 @@ I performed Manual Testing only for this project due to time constraints.
 - The site icon came from [Flat Icon](https://www.flaticon.com/)
 - The site banner was designed by me on [Canva](https://www.canva.com)
 - The person walking icon was taken and edited from [Bootstrap Icons](https://icons.getbootstrap.com/)
-- All cocktail images were taken and cropped from Google Images 
-<br>
+- All cocktail images were taken and cropped from Google Images. 
 - The Code Institute *I Think Therefore I Blog* project provided the basic framework for my site. 
-- I used several courses for information on Django functionality, but largely this learning path: [Become a Django Developer](https://www.linkedin.com/learning/paths/become-a-django-developer?u=244845242)
+- I used several courses for information on Django functionality, but largely the learning path [Become a Django Developer](https://www.linkedin.com/learning/paths/become-a-django-developer?u=244845242)
 
 ## Media
 - The cocktail ingredients and instructions were taken from [the MyBar app](https://mybarapp.com)
